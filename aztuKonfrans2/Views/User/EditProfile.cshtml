@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.edit_profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section headExtra{
+    <link rel="stylesheet" type="text/css" href="/Content/styles/registration.css">
+}
+
+<div class="registration">
+
+    <div class="reg_head">
+        <div class="elements_title col-12">
+            <span>@aztuKonfrans2.Resources.Resource.edit_profile</span>
+        </div>
+    </div>
+
+    <div class="reg_form">
+        <form class="form-horizontal" method="post">
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="name">@aztuKonfrans2.Resources.Resource.first_name:</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="name" name="first_name" placeholder="@aztuKonfrans2.Resources.Resource.first_name" value="@Model.first_name" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="middleName">@aztuKonfrans2.Resources.Resource.middle_name:</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="middleName" name="middle_name" value="@Model.middle_name" placeholder="@aztuKonfrans2.Resources.Resource.middle_name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="lastName">@aztuKonfrans2.Resources.Resource.last_name:</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="lastName" name="last_name" value="@Model.last_name" placeholder="@aztuKonfrans2.Resources.Resource.last_name" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_tn">@aztuKonfrans2.Resources.Resource.phone</label>
+                    <div class="col-4">
+                        <input type="tel" class="form-control" id="usr_tn" name="phone" value="@Model.phone" placeholder="@aztuKonfrans2.Resources.Resource.for_instance +994125391332" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="sel1">@aztuKonfrans2.Resources.Resource.country:</label>
+                    <div class="col-4">
+                        <select id="country" name="country_id" class="form-control">
+                            @{
+                                string[] countries = aztuKonfrans2.Classes.AdditionalDBResource.country;
+                                Array.Sort(countries);
+                                int index = 0;
+                                for (int i = 0; i < countries.Length; i++)
+                                {
+                                    index = Array.IndexOf(aztuKonfrans2.Classes.AdditionalDBResource.country, countries[i]);
+                                    if (index + 1 == Model.country_id)
+                                    {
+                                        <option value="@(index+1)" selected>@countries[i]</option>
+
+                                    }
+                                    else
+                                    {
+                                        <option value="@(index+1)">@countries[i]</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_ap">@aztuKonfrans2.Resources.Resource.title:</label>
+                    <div class="col-4">
+                        <select class="form-control" id="usr_ap" name="title_id">
+                            @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.title.Length; i++)
+                            {
+                                if (i + 1 == Model.title_id)
+                                {
+                                    <option value="@(i+1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.title[i]</option>
+                                }
+                                else
+                                {
+                                    <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.title[i]</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_sdg">@aztuKonfrans2.Resources.Resource.degree:</label>
+                    <div class="col-4">
+                        <select class="form-control" id="usr_sdg" name="degree_id">
+                            @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.degree.Length; i++)
+                            {
+                                if (i + 1 == Model.degree_id)
+                                {
+                                    <option value="@(i+1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.degree[i]</option>
+
+                                }
+                                else
+                                {
+                                    <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.degree[i]</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_ni">@aztuKonfrans2.Resources.Resource.institution:</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="usr_ni" name="institution" value="@Model.institution" placeholder="@aztuKonfrans2.Resources.Resource.institution" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_tpc">@aztuKonfrans2.Resources.Resource.topic:</label>
+                    <div class="col-4">
+                        <select class="form-control" id="usr_sd" name="topic_id">
+                            @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.topic.Length; i++)
+                            {
+                                if (i + 1 == Model.topic_id)
+                                {
+                                    <option value="@(i+1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</option>
+                                }
+                                else
+                                {
+                                    <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group pos_form_group">
+                <div class="row">
+                    <label class="control-label col-4" for="usr_position">@aztuKonfrans2.Resources.Resource.position:</label>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="usr_position" name="position" value="@Model.position" placeholder="@aztuKonfrans2.Resources.Resource.position" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-submit">
+                <div class="button element_button button_1"><a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.submit</a></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Content/js/reg_edit.js"></script>
+    <script src="~/Content/js/edit_profile.js"></script>
+}

@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="another_author_information sub_section" style="display:none" id="another_author">
+    <div class="elements_title_s">
+        <span>@aztuKonfrans2.Resources.Resource.another_author</span>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorFullName">@aztuKonfrans2.Resources.Resource.full_name:</label>
+            <input type="text" class="form-control newAuthorFullName" id="newAuthorFullName" required placeholder="@aztuKonfrans2.Resources.Resource.full_name" name="full_name">
+        </div>
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorTitle">@aztuKonfrans2.Resources.Resource.title:</label>
+            <select class="form-control newAuthorTitle" id="newAuthorTitle" name="title_id">
+                @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.title.Length; i++)
+                {
+                    <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.title[i]</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorDegree">@aztuKonfrans2.Resources.Resource.degree:</label>
+            <select class="form-control newAuthorDegree" id="newAuthorDegree" name="degree_id">
+                @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.degree.Length; i++)
+                {
+                    <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.degree[i]</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorCountry">@aztuKonfrans2.Resources.Resource.country:</label>
+            <select id="newAuthorCountry" name="country_id" class="form-control newAuthorCountry">
+                @{
+                    string[] countries = aztuKonfrans2.Classes.AdditionalDBResource.country;
+                    Array.Sort(countries);
+                    int index = 0;
+                    for (int i = 0; i < countries.Length; i++)
+                    {
+                        index = Array.IndexOf(aztuKonfrans2.Classes.AdditionalDBResource.country, countries[i]);
+                        <option value="@(index+1)">@countries[i]</option>
+                    }
+                }
+            </select>
+
+        </div>
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorEmail">Email:</label>
+            <input type="email" class="form-control newAuthorEmail" id="newAuthorEmail" required placeholder="Email" name="email">
+        </div>
+        <div class="form-group col-4">
+            <label class="control-label" for="newAuthorPhone">@aztuKonfrans2.Resources.Resource.phone:</label>
+            <input type="tel" class="form-control newAuthorPhone" id="newAuthorPhone" required placeholder="@aztuKonfrans2.Resources.Resource.for_instance +994125391332" name="phone">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-6">
+            <label class="control-label" for="newAuthorInstituion">@aztuKonfrans2.Resources.Resource.institution:</label>
+            <input type="text" class="form-control newAuthorInstituion" id="newAuthorInstituion" required placeholder="@aztuKonfrans2.Resources.Resource.institution" name="institution">
+        </div>
+        <div class="form-group col-6">
+            <label class="control-label" for="newAuthorPosition">@aztuKonfrans2.Resources.Resource.position:</label>
+            <input type="text" class="form-control newAuthorPosition" id="newAuthorPosition" required placeholder="@aztuKonfrans2.Resources.Resource.position" name="position">
+        </div>
+    </div>
+    <div>
+        <a href="javascript:void(0)" class="remove_author btn btn-danger">- @aztuKonfrans2.Resources.Resource.remove_author</a>
+    </div>
+
+</div>

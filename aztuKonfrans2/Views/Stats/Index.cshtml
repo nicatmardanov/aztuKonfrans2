@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.stats;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using aztuKonfrans2.Models;
+@{
+    IQueryable<User> _user = Model;
+    IQueryable<Paper> _paper = ViewBag.Paper;
+}
+
+<div class="stats_page">
+    <div class="container">
+        <div class="stats_info">
+            <div class="row">
+                <div class="elements_title col-12 d-flex align-items-center">
+                    <span>@aztuKonfrans2.Resources.Resource.paper_send_user</span>
+                </div>
+            </div>
+            <div class="row stats_row">
+                <div class="col-6">
+                    <a href="/Stats/UserInfo/14">@aztuKonfrans2.Resources.Resource.org_az_side.Substring(1, aztuKonfrans2.Resources.Resource.org_az_side.Length - 1): @_user.Where(x => x.country_id == 14).Count()</a>
+                </div>
+                <div class="col-6">
+                    <a href="/Stats/UserInfo/220">@aztuKonfrans2.Resources.Resource.org_tr_side.Substring(1, aztuKonfrans2.Resources.Resource.org_tr_side.Length - 1): @_user.Where(x => x.country_id == 220).Count()</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats_info">
+            <div class="row">
+                <div class="elements_title col-12 d-flex align-items-center">
+                    <span>@aztuKonfrans2.Resources.Resource.papers:</span>
+                </div>
+            </div>
+            <div class="row stats_row">
+                <div class="col-6">
+                    <a href="/Stats/ApprovedPapersUser">@aztuKonfrans2.Resources.Resource.approved_papers: @_paper.Where(x=>x.isApproved==1).Count()</a>
+                </div>
+                <div class="col-6">
+                    <a href="/Paper/NonApprovedPapers">@aztuKonfrans2.Resources.Resource.non_approved_papers: @_paper.Where(x => x.isApproved == 0).Count()</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

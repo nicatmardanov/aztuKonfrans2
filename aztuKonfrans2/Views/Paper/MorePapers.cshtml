@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+@foreach (aztuKonfrans2.Models.Paper item in Model)
+{
+    <div class="row">
+        <ul class="pt_row">
+            <li class="float-left paper_name">
+                <a href="@item.file_path">@item.title</a>
+            </li>
+            <li class="float-left paper_author">
+                @{
+                    aztuKonfrans2.Models.aztuKonfransEntities konfEntities = new aztuKonfrans2.Models.aztuKonfransEntities();
+                    string authors = "";
+                    if (string.IsNullOrEmpty(item.User.middle_name))
+                    {
+                        authors = item.User.first_name + " " + item.User.last_name;
+                    }
+                    else
+                    {
+                        authors = item.User.first_name + " " + item.User.middle_name + " " + item.User.last_name;
+                    }
+                    var _author = item.Paper_Author.ToList();
+                    if (_author.Count > 0 && _author[0].author_id > 0)
+                    {
+                        authors += ", ";
+                        foreach (aztuKonfrans2.Models.Paper_Author a_item in _author)
+                        {
+                            if (a_item.Author != null)
+                            {
+                                authors += a_item.Author.full_name + ", ";
+                            }
+                        }
+
+                        authors = authors.Substring(0, authors.Length - 2);
+                    }
+                }
+                <a href="javascript:void(0)" data-id="@item.id">@authors</a>
+            </li>
+
+            @if (item.isApproved == 0)
+            {
+                <li class="float-left paper_app paper_appr paper_approve">
+                    <a href="javascript:void(0)" data-id="@item.id">@aztuKonfrans2.Resources.Resource.approve</a>
+                </li>
+            }
+            else
+            {
+                <li class="float-left paper_app paper_appr paper_disapprove">
+                    <a href="javascript:void(0)" data-id="@item.id">@aztuKonfrans2.Resources.Resource.disapprove</a>
+                </li>
+            }
+            <li class="float-left paper_app paper_delete paper_delt">
+                <a href="javascript:void(0)" data-id="@item.id">@aztuKonfrans2.Resources.Resource.delete</a>
+            </li>
+        </ul>
+    </div>
+}

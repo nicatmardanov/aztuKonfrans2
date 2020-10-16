@@ -1,0 +1,219 @@
+﻿@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.home;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="home_content_container">
+    <div class="home_section_banner">
+        <div class="banner_inner">
+            <div id="homeCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#homeCarousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="~/Content/images/banner_1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="~/Content/images/banner_2.jpg" alt="Second slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="about_us_section section">
+        <div class="container">
+            <div class="row">
+                <div class="elements_h_title col-md-12">
+                    <span>@aztuKonfrans2.Resources.Resource.about_conf</span>
+                </div>
+
+                <div class="elements_hs_title col-md-12">
+                    <span>
+                        @aztuKonfrans2.Resources.Resource.about_txt_1<br><br>
+                        @aztuKonfrans2.Resources.Resource.about_txt_3
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="announcement_section section">
+        <div class="container">
+            <div class="row">
+                <div class="elements_h_title col-md-12">
+                    <span>@aztuKonfrans2.Resources.Resource.announcement</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="announcement_text col-12">
+                    <div>
+                        <a href="javascript:void(0)">
+                            1. @aztuKonfrans2.Resources.Resource.conference_material:
+                        </a>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="~/Content/assets/material_1.pdf">@aztuKonfrans2.Resources.Resource.part_1 - @aztuKonfrans2.Classes.AdditionalDBResource.topic[2]</a></li>
+                            <li><a href="~/Content/assets/material_2.pdf">@aztuKonfrans2.Resources.Resource.part_2 - @aztuKonfrans2.Classes.AdditionalDBResource.topic[4], @aztuKonfrans2.Classes.AdditionalDBResource.topic[5]</a></li>
+                            <li><a href="~/Content/assets/material_3.pdf">@aztuKonfrans2.Resources.Resource.part_3 - @aztuKonfrans2.Classes.AdditionalDBResource.topic[0], @aztuKonfrans2.Classes.AdditionalDBResource.topic[1], @aztuKonfrans2.Classes.AdditionalDBResource.topic[3]</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="announcement_text col-12">
+                    <a href="~/Content/assets/final_program_conference.pdf">
+                        2. @aztuKonfrans2.Resources.Resource.program_conference
+                    </a>
+                </div>
+                <div class="announcement_text col-12">
+                    <a href="https://www.yok.gov.tr/Sayfalar/DuyuruDetay.aspx?did=850">
+                        3. @aztuKonfrans2.Resources.Resource.org_tr_32 - I. Uluslararası Bilimsel-Pratik Konferansı
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="imp_dates section">
+        <div class="container">
+            <div class="row">
+                <div class="elements_h_title col-md-12">
+                    <span>@aztuKonfrans2.Resources.Resource.imp_dates</span>
+                </div>
+            </div>
+            <div class="imp_dates_inner table_section">
+                <div class="row">
+                    <ul class="pt_heading">
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.dates</a>
+                        </li>
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.activity</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul class="pt_row">
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.date_1</a>
+                        </li>
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.activity_1</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul class="pt_row">
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.date_2</a>
+                        </li>
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.activity_2</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul class="pt_row">
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.date_3</a>
+                        </li>
+                        <li class="float-left">
+                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.activity_3</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="home_sponsors section">
+        <div class="container">
+            <div class="row">
+                <div class="elements_h_title">
+                    <div class="col-md-12">
+                        <span>@aztuKonfrans2.Resources.Resource.sponsors</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row sponsor_row">
+                <div class="col-4">
+                    <a href="https://www.edu.gov.az/">
+                        <img src="~/Content/images/az_edu.png" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="https://www.tika.gov.tr/">
+                        <img src="~/Content/images/tika_logo_1.png" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="https://www.aztu.edu.az/">
+                        <img src="~/Content/images/technical_logo.png" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_accommodation section">
+        <div class="container">
+            <div class="row">
+                <div class="elements_h_title">
+                    <div class="col-md-12">
+                        <span>@aztuKonfrans2.Resources.Resource.accom</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row accom_row">
+                <div class="col-6">
+                    <a href="https://www.hyatt.com/">
+                        <div class="accom_img">
+                            <img class="img-fluid" src="~/Content/images/accom_1.png" alt="Hyatt Regency">
+                        </div>
+                        <div class="accom_blur">
+                            <div class="accom_text">
+                                <span>Hyatt Regency</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="https://www.ramadabaku.com/">
+                        <div class="accom_img">
+                            <img class="img-fluid" src="~/Content/images/accom_2.png" alt="Ramada Hotel">
+                        </div>
+                        <div class="accom_blur">
+                            <div class="accom_text">
+                                <span>Ramada Hotel</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section headExtra{
+    <style>
+        header {
+            margin-bottom: 0 !important;
+        }
+    </style>
+}
+@section scripts{
+    <script>
+        var a = ['addClass', '.home_nav']; (function (c, d) { var e = function (f) { while (--f) { c['push'](c['shift']()); } }; e(++d); }(a, 0x121)); var b = function (c, d) { c = c - 0x0; var e = a[c]; return e; }; $(b('0x0'))[b('0x1')]('active');
+    </script>
+}

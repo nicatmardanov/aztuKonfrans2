@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ICEST | @ViewBag.Title</title>
+    <link rel="icon" href="~/Content/images/favico.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Conference project">
+    <meta name="viewport" content="width=1170">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Content/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/styles/main_styles.css">
+    @RenderSection("headExtra", false)
+    <link rel="stylesheet" type="text/css" href="/Content/styles/responsive.css">
+</head>
+<body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(54866692, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/54866692" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    @RenderSection("addModal", false)
+    <!--form Modal -->
+    <div class="modal" id="formModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="formModalBody">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="formModalBody_after_text">@aztuKonfrans2.Resources.Resource.form_after</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <!--Login Modal -->
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <div class="elements_title_s">
+                            <span>
+                                <a href="javascript:void(0)" class="modal_log_button">@aztuKonfrans2.Resources.Resource.login | </a><a href="/Registration" class="modal_reg_button">@aztuKonfrans2.Resources.Resource.registration</a>
+                            </span>
+                        </div>
+                        <a href="javascript:void(0)" class="close" data-dismiss="modal">&times;</a>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="modal-sign-in modalSlider">
+                            <form>
+                                <div class="form-group">
+                                    <div class="loginModalInput">
+                                        <input type="email" class="form-control" placeholder="Email" id="loginEmail">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="loginModalInput">
+                                        <input type="password" class="form-control" placeholder="@aztuKonfrans2.Resources.Resource.password" id="loginPassword">
+                                    </div>
+                                </div>
+                                <div class="form-submit">
+                                    <div class="modalSubmit modal_button"><a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.sign_in</a></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-forgot-password modalSlider">
+                            <form action="">
+                                <div class="form-group">
+                                    <div class="loginModalInput">
+                                        <input type="email" class="form-control" placeholder="Email" id="forgot_email">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="loginModalInput">
+                                        <input type="tel" class="form-control" placeholder="@aztuKonfrans2.Resources.Resource.phone" id="forgot_number">
+                                    </div>
+                                </div>
+                                <div class="form-submit">
+                                    <div class="modalSubmit modal_button">
+                                        <a href="javascript:void(0)" id="loginModalSubmitButton">@aztuKonfrans2.Resources.Resource.submit</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="modalForgot modal_button"><a class="modalForgotButton modal_forgot" href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.forgot_pass</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+    <div class="super_container">
+        <header class="header" id="header">
+            <div class="scrolled">
+                <div class="header_nav" id="header_nav_pin">
+                    <div class="header_nav_inner">
+                        <div class="header_nav_container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="header_nav_content d-flex flex-row align-items-center justify-content-start">
+                                            <div class="logo_section">
+                                                <a href="/">
+                                                    <div class="logo_container d-flex flex-row align-items-start justify-content-start">
+                                                        <div class="logo_image">
+                                                            <div>
+                                                                <img src="/Content/images/logo.png" alt="Logo">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="main_nav">
+                                                <ul>
+                                                    <li class="home_nav"><a href="/">@aztuKonfrans2.Resources.Resource.home</a></li>
+                                                    <li class="com_nav"><a href="/Committee">@aztuKonfrans2.Resources.Resource.committee</a></li>
+                                                    <li class="topic_nav"><a href="/Topics">@aztuKonfrans2.Resources.Resource.topics</a></li>
+                                                    <li>
+                                                        <div class="dropdown">
+                                                            <a href="javascript:void(0)" class="dropbtn">@aztuKonfrans2.Resources.Resource.authors</a>
+                                                            <div class="dropdown-content">
+                                                                <div>
+                                                                    <a href="/Guideline">@aztuKonfrans2.Resources.Resource.guidelines</a>
+                                                                </div>
+                                                                <div>
+                                                                    <a href="/Paper/Submission">@aztuKonfrans2.Resources.Resource.submission</a>
+                                                                </div>
+                                                                <div>
+                                                                    <a href="/Venue">@aztuKonfrans2.Resources.Resource.venue</a>
+                                                                </div>
+                                                                <div>
+                                                                    <a href="/Schedule">@aztuKonfrans2.Resources.Resource.schedule</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="contact_nav"><a href="/Contact">@aztuKonfrans2.Resources.Resource.contact_us</a></li>
+                                                    @if (!User.Identity.IsAuthenticated)
+                                                    {
+                                                        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">@aztuKonfrans2.Resources.Resource.login</a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        aztuKonfrans2.Models.aztuKonfransEntities aztuKonf = new aztuKonfrans2.Models.aztuKonfransEntities();
+                                                        var _user = aztuKonf.Users.FirstOrDefault(x => x.email == User.Identity.Name);
+                                                        <li>
+                                                            <div class="dropdown">
+                                                                <a href="javascript:void(0)" class="dropbtn nav_user_side">@_user.first_name</a>
+                                                                <div class="dropdown-content">
+                                                                    <div>
+                                                                        <a href="/User/MyProfile">@aztuKonfrans2.Resources.Resource.profile</a>
+                                                                    </div>
+                                                                    @if (User.IsInRole("Admin"))
+                                                                    {
+                                                                        <div>
+                                                                            <a href="/User/AllUsers/1">@aztuKonfrans2.Resources.Resource.all_users</a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <a href="/Paper/AllPapers/1">@aztuKonfrans2.Resources.Resource.all_papers</a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <a href="/Paper/DeletePaper">@aztuKonfrans2.Resources.Resource.delete_paper</a>
+                                                                        </div>
+                                                                        <div>
+                                                                            <a href="/Stats">@aztuKonfrans2.Resources.Resource.stats</a>
+                                                                        </div>
+                                                                    }
+                                                                    <div>
+                                                                        <a href="/Login/LogOut?redirectUrl=@this.Request.RawUrl">@aztuKonfrans2.Resources.Resource.log_out</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                    <li class="nav_lang">
+                                                        <div class="float-left lang_ch">
+                                                            <a href="/Language/Change?id=az&redirectUrl=@this.Request.RawUrl">
+                                                                <img src="~/Content/images/azerbaijan.png" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="float-left lang_ch">
+                                                            <a href="/Language/Change?id=tr&redirectUrl=@this.Request.RawUrl">
+                                                                <img src="~/Content/images/turkey.png" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="float-left lang_ch">
+                                                            <a href="/Language/Change?id=en&redirectUrl=@this.Request.RawUrl">
+                                                                <img src="~/Content/images/united-kingdom.png" />
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>@RenderBody()<!-- Footer -->
+        <footer class="footer">
+            <div class="footer_content">
+                <div class="container">
+                    <div class="row">
+                        <!-- Footer Column -->
+                        <div class="col-6 footer_col">
+                            <div class="footer_about">
+                                <div>
+                                    <a href="/" class="footer_logo_section">
+                                        <div class="logo_container">
+                                            <div class="logo_image">
+                                                <div>
+                                                    <img src="/Content/images/logo_footer.png" alt="Logo">
+                                                </div>
+                                            </div>
+                                            <div class="logo_content">
+                                                <div id="logo_text" class="logo_text logo_text_not_ie">@aztuKonfrans2.Resources.Resource.conf_info_1<br>@aztuKonfrans2.Resources.Resource.conf_info_2</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 footer_col">
+                            <div class="footer_contact_us">
+                                <div class="footer_contact_us_text">
+                                    <span>@aztuKonfrans2.Resources.Resource.contact_us</span>
+                                </div>
+                                <div class="footer_contacts">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <div class="footer_contacts_img_section">
+                                                    <img src="/Content/images/location-icon.svg" alt="">
+                                                </div>
+                                                <div class="footer_contacts_text_section footer_contacts_address_text_section">
+                                                    <span>@aztuKonfrans2.Resources.Resource.azTU_address</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+994125391332">
+                                                <div class="footer_contacts_img_section">
+                                                    <img src="/Content/images/phone_icon_footer.svg" alt="">
+                                                </div>
+                                                <div class="footer_contacts_text_section">
+                                                    <span>(+994 12) 539-13-32</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:info@az-tr-conference2019.com ">
+                                                <div class="footer_contacts_img_section">
+                                                    <img src="/Content/images/mail_icon_footer.svg" alt="">
+                                                </div>
+                                                <div class="footer_contacts_text_section">
+                                                    <span>info@az-tr-conference2019.com</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 copyright">
+                            @if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == "en")
+                            {
+                                <a href="http://aztu.edu.az">All rights reserved by @aztuKonfrans2.Resources.Resource.azTU</a>
+                            }
+                            else if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == "az")
+                            {
+                                <a href="http://aztu.edu.az">Bütün hüquqlar @aztuKonfrans2.Resources.Resource.azTU tərəfindən qorunur</a>
+                            }
+                            else if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == "tr")
+                            {
+                                string s = "Tüm haklar " + @aztuKonfrans2.Resources.Resource.azTU + "ne aittir.";
+                                <a href="http://aztu.edu.az">@s</a>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="/Content/styles/bootstrap/popper.js"></script>
+    <script src="/Content/styles/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+        resources = [
+            '@aztuKonfrans2.Resources.Resource.valid_email', //0
+            '@aztuKonfrans2.Resources.Resource.valid_pass',  //1
+            '@aztuKonfrans2.Resources.Resource.not_find_account',  //2
+            '@aztuKonfrans2.Resources.Resource.disactive_account', //3
+            '@aztuKonfrans2.Resources.Resource.disapprove', //4
+            '@aztuKonfrans2.Resources.Resource.approve', //5
+            '@aztuKonfrans2.Resources.Resource.valid_value', //6
+            '@aztuKonfrans2.Resources.Resource.pass_not_matching', //7
+            '@aztuKonfrans2.Resources.Resource.email_exists', //8
+            '@aztuKonfrans2.Resources.Resource.pass_requirement', //9
+            '@aztuKonfrans2.Resources.Resource.make_admin', //10
+            '@aztuKonfrans2.Resources.Resource.remove_admin', //11
+            '@aztuKonfrans2.Resources.Resource.reg_success', //12
+            '@aztuKonfrans2.Resources.Resource.sub_success', //13
+            '@aztuKonfrans2.Resources.Resource.valid_phone', //14
+            '@aztuKonfrans2.Resources.Resource.pass_was_sent', //15
+            '@aztuKonfrans2.Resources.Resource.form_after', //16
+            '@aztuKonfrans2.Resources.Resource.forgot_pass', //17
+            '@aztuKonfrans2.Resources.Resource.login', //18
+            '@aztuKonfrans2.Resources.Resource.registration', //19
+            '@aztuKonfrans2.Resources.Resource.back_login', //20
+            '@aztuKonfrans2.Resources.Resource.uploaded', //21
+            '@aztuKonfrans2.Resources.Resource.edit_success', //22
+            '@aztuKonfrans2.Resources.Resource.delete', //23
+            '@aztuKonfrans2.Resources.Resource.undo' //24
+        ];
+    </script>
+    <script src="/Content/js/custom.js"></script>
+
+    @RenderSection("scripts", false)
+
+
+</body>
+</html>

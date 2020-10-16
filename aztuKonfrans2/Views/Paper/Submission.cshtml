@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.paper_submission;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.DeadLine == 1 && !User.IsInRole("Admin"))
+{
+    <div class="deadline_submission">
+        <div class="container">
+            <a href="javascript:void(0)" class="error_txt_for_submission">@aztuKonfrans2.Resources.Resource.deadline_text</a>
+        </div>
+    </div>
+}
+else if (User.Identity.IsAuthenticated)
+{
+    <!-- submission -->
+    <div class="submission_section">
+        <div class="container">
+            <div>
+                <div class="row">
+                    <div class="elements_title col-12 t_center">
+                        <span>@aztuKonfrans2.Resources.Resource.paper_submission</span>
+                    </div>
+                </div>
+            </div>
+            <div class="submission-requirements sub_section">
+                <div class="row">
+                    <div class="elements_title_s col-12">
+                        <span>@aztuKonfrans2.Resources.Resource.submission_requirements</span>
+                    </div>
+                </div>
+                <div class="row g_row">
+                    <div class="requirements_list col-12">
+                        <span>1. @aztuKonfrans2.Resources.Resource.s_req1</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>2. @aztuKonfrans2.Resources.Resource.s_req2</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>3. @aztuKonfrans2.Resources.Resource.s_req3 </span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>4. @aztuKonfrans2.Resources.Resource.s_req4</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>5. @aztuKonfrans2.Resources.Resource.s_req5</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>6. @aztuKonfrans2.Resources.Resource.s_req6</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>7. @aztuKonfrans2.Resources.Resource.s_req7</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>
+                            8. @aztuKonfrans2.Resources.Resource.s_req8<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Paper/Submission">www.az-tr-conference2019.com</a>
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:subhan.namazov@aztu.edu.az">subhan.namazov@aztu.edu.az</a>
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:subhan_namazov@daadalumni.de">subhan_namazov@daadalumni.de</a>
+                        </span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>9. @aztuKonfrans2.Resources.Resource.s_req9</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>10. @aztuKonfrans2.Resources.Resource.s_req10</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>11. @aztuKonfrans2.Resources.Resource.s_req11</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>12. @aztuKonfrans2.Resources.Resource.s_req12</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>13. @aztuKonfrans2.Resources.Resource.s_req13</span>
+                    </div>
+                    <div class="requirements_list col-12">
+                        <span>14. @aztuKonfrans2.Resources.Resource.s_req14</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="submit_paper">
+                <div class="submission_form">
+                    <form>
+                        <div class="sub_section">
+                            <div class="form-group">
+                                <label for="inputTitlePaper">@aztuKonfrans2.Resources.Resource.submit_title @aztuKonfrans2.Resources.Resource.submit_title_max</label>
+                                <input type="text" class="form-control" id="inputTitlePaper" placeholder="@aztuKonfrans2.Resources.Resource.submit_title" maxlength="200" name="title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="usr_tpc">@aztuKonfrans2.Resources.Resource.topic:</label>
+                                <select class="form-control" id="usr_sd" name="topic_id">
+                                    @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.topic.Length; i++)
+                                    {
+                                        <option value="@(i + 1)">@aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+                        @{
+                            var f_name = "";
+                            if (!string.IsNullOrEmpty(Model.middle_name))
+                            {
+                                f_name += Model.first_name + " " + Model.middle_name + " " + Model.last_name;
+                            }
+                            else
+                            {
+                                f_name += Model.first_name + " " + Model.last_name;
+                            }
+                        }
+
+                        <div class="author_info sub_section">
+                            <div class="elements_title_s">
+                                <span>@aztuKonfrans2.Resources.Resource.auth_info</span>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="inputFullName">@aztuKonfrans2.Resources.Resource.full_name:</label>
+                                    <input type="text" class="form-control" id="inputFullName" value="@f_name" readonly>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="inputTitle">@aztuKonfrans2.Resources.Resource.title:</label>
+                                    <input type="text" class="form-control" id="inputTitle" value="@aztuKonfrans2.Classes.AdditionalDBResource.title[(int)Model.title_id-1]" readonly>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="inputDegree">@aztuKonfrans2.Resources.Resource.degree:</label>
+                                    <input type="text" class="form-control" id="inputDegree" value="@aztuKonfrans2.Classes.AdditionalDBResource.degree[(int)Model.degree_id-1]" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-4">
+                                    <label for="inputCountry">@aztuKonfrans2.Resources.Resource.country:</label>
+                                    <input type="text" class="form-control" id="inputCountry" value="@aztuKonfrans2.Classes.AdditionalDBResource.country_en[(int)Model.country_id-1]" readonly>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="inputEmail">Email:</label>
+                                    <input type="text" class="form-control" id="inputEmail" value="@Model.email" readonly>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="inputPhone">@aztuKonfrans2.Resources.Resource.phone:</label>
+                                    <input type="tel" class="form-control" id="inputPhone" value="@Model.phone" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="inputInstution">@aztuKonfrans2.Resources.Resource.institution:</label>
+                                    <input type="text" class="form-control" id="inputInstution" value="@Model.institution" readonly>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="inputPosition">@aztuKonfrans2.Resources.Resource.position:</label>
+                                    <input type="text" class="form-control" id="inputPosition" value="@Model.position" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="sub_section sub_add_author">
+                            <a href="javascript:void(0)" class="add_author btn btn-primary">+ @aztuKonfrans2.Resources.Resource.add_author</a>
+                        </div>
+                        <div class="sub_section">
+                            <div class="elements_title_s">
+                                <span>
+                                    @aztuKonfrans2.Resources.Resource.attach_file
+                                </span>
+                            </div>
+                            <div class="custom-file form-group col-12 full_paper_file">
+                                <input type="file" class="custom-file-input" id="paperFile" accept=".doc, .docx" name="paper_file" required>
+                                <label class="custom-file-label" for="paperFile">@aztuKonfrans2.Resources.Resource.choose_file</label>
+                            </div>
+                        </div>
+
+                        <div class="submit_form">
+                            <div class="button element_button button_1 submission_submit">
+                                <a href="javascript:void(0)" id="submit_form_button">@aztuKonfrans2.Resources.Resource.submit</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts{
+        <script>
+            page_type = 1;
+        </script>
+        <script src="/Content/js/submission.js"></script>
+    }
+}
+@*else
+{
+    <div class="register_submission">
+        <div class="container">
+            <a href="/Registration" class="error_txt_for_submission">@aztuKonfrans2.Resources.Resource.reg_for_submission</a>
+        </div>
+    </div>
+}*@

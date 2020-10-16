@@ -1,0 +1,160 @@
+﻿﻿@{
+    if (ViewBag.PaperType == 0)
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.non_approved_papers;
+    }
+    else if (ViewBag.PaperType == 3)
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.delete_paper;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using aztuKonfrans2.Models;
+
+<div class="all_papers_content">
+    <div class="container">
+        <div class="all_papers_page_top us_section">
+            <div class="row">
+
+                @{
+                    string searchedItem = "", PaperType = "", ApprovedPaperUrl;
+
+                    if (!string.IsNullOrEmpty(ViewBag.SearchedItem))
+                    {
+                        searchedItem = "" + ViewBag.SearchedItem;
+                        ApprovedPaperUrl = this.Request.RawUrl.Substring(0, this.Request.RawUrl.Length - 1) + "1";
+                    }
+                    else
+                    {
+                        searchedItem = aztuKonfrans2.Resources.Resource.search_paper;
+                        ApprovedPaperUrl = "/Paper/AllPapers/1";
+                    }
+
+
+                    if (ViewBag.PaperType == 0)
+                    {
+                        PaperType = aztuKonfrans2.Resources.Resource.non_approved_papers;
+                    }
+                    else if (ViewBag.PaperType == 3)
+                    {
+                        PaperType = aztuKonfrans2.Resources.Resource.delete_paper;
+                    }
+
+                }
+
+                <div class="elements_title col-8">
+                    <div class="float_left">
+                        <a href="javascript:void(0)">@PaperType</a>
+                    </div>
+
+                    @if (ViewBag.PaperType == 0)
+                    {
+                        <div class="float_right all_users_type_list">
+                            <ul>
+
+                                <li class="float_left d-flex align-items-center">
+                                    <a href=@ApprovedPaperUrl>@aztuKonfrans2.Resources.Resource.all_papers</a>
+                                </li>
+                                <li class="float_left d-flex align-items-center">
+                                    <a href="javascript:void(0)" class="all_users_type_active">@aztuKonfrans2.Resources.Resource.non_approved_papers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+                <div class="form-group col-4 float-right search_paper_section">
+                    <input type="text" class="form-control" id="searchPaper" placeholder="@searchedItem" data-id="0">
+                    <a href="javascript:void(0)" class="d-flex align-items-center">
+                        <img src="~/Content/images/iconmonstr-magnifier-3.svg" />
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="paper_section f_paper_section table_section">
+            <div class="row">
+                <ul class="pt_heading">
+                    <li class="float-left paper_name">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.paper_name</a>
+                    </li>
+                    <li class="float-left paper_author">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.authors</a>
+                    </li>
+                    <li class="float-left paper_approve paper_appr">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.approve</a>
+                    </li>
+                    <li class="float-left paper_delete paper_delt">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.delete</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="def_papers">
+                @{
+                    IQueryable<Paper> _paper = Model;
+                }
+                @Html.Action("MorePapers", "Paper", new { sender = _paper.Take(10), type = 0 })
+            </div>
+
+        </div>
+
+        @if (ViewBag.paperCount > 10)
+        {
+            <div class="load_paper button">
+                <a href="javascript:void(0)" class="load_paper_button">@aztuKonfrans2.Resources.Resource.load_paper</a>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/js/paper.js"></script>
+    <script src="~/Content/js/delete_paper.js"></script>
+    <script>
+        var all_papers_list=null;
+            all_papers_list = $(`@Html.Action("MorePapers", "Paper", new { sender = _paper.ToList().Skip(10), type = 0})`);
+
+
+        var paperCount = 0;
+
+        function Papers() {
+            for (var i = paperCount * 10; i < (paperCount + 1) * 10; i++) {
+                $('.def_papers').append(all_papers_list[i * 2]);
+                if (i * 2 == all_papers_list.length + 1) {
+                    $('.load_paper').remove();
+                    break;
+                }
+            }
+            paperCount++;
+        }
+
+
+
+        $(document).on("click", ".load_paper_button", function (e) {
+            Papers();
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        })
+
+        $('#searchPaper').change(function (e) {
+            var value = $(this).val();
+
+            if (value.length > 0) {
+
+                window.location.replace("/Paper/SearchedPaperResult?page=1&id=" + value + "&type=@ViewBag.PaperType")
+
+            }
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.topics;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!-- topics -->
+<div class="topics">
+    <div class="topics_inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="topics_page_title elements_title col-md-12">
+                            <span>@aztuKonfrans2.Resources.Resource.call_papers</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="topics_page_text elements_title_s  col-md-12">
+                            <span>@aztuKonfrans2.Resources.Resource.topic_title:</span>
+                        </div>
+                    </div>
+                    <div class="row all_topics_section">
+                        <div class="col-md-12">
+                            <div class="all_topics">
+                                <ul>
+                                    @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.topic.Length;i++)
+                                    {
+                                        <li>
+                                            <a href="javascript:void(0)">@(i+1). @aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var _0x9050 = ["\x61\x63\x74\x69\x76\x65", "\x61\x64\x64\x43\x6C\x61\x73\x73", "\x2E\x74\x6F\x70\x69\x63\x5F\x6E\x61\x76"]; $(_0x9050[2])[_0x9050[1]](_0x9050[0])
+    </script>
+}
+

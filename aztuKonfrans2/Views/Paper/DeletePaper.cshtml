@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.delete;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="all_papers_content">
+    <div class="container">
+        <div class="all_papers_page_top us_section">
+            <div class="row">
+                @{
+                    string searchedItem = aztuKonfrans2.Resources.Resource.search_paper;
+                    string ApprovedPaperUrl = "/Paper/AllPapers/1";
+                }
+                <div class="elements_title col-8">
+                    <div class="float_left">
+                        <a href="@ApprovedPaperUrl">@aztuKonfrans2.Resources.Resource.all_papers</a>
+                    </div>
+                </div>
+                <div class="form-group col-4 float-right search_paper_section">
+                    <input type="text" class="form-control" id="searchPaper" placeholder="@searchedItem" data-id="0">
+                    <a href="javascript:void(0)" class="d-flex align-items-center">
+                        <img src="~/Content/images/iconmonstr-magnifier-3.svg" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper_section table_section">
+            <div class="row">
+                <ul class="pt_heading">
+                    <li class="float-left paper_name">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.paper_name</a>
+                    </li>
+                    <li class="float-left paper_author">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.authors</a>
+                    </li>
+                    <li class="float-left paper_delete">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.delete</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="def_papers">
+            </div>
+
+        </div>
+
+        @if (ViewBag.AllCount > 10)
+        {
+            <div class="load_paper button">
+                <a href="javascript:void(0)" class="load_paper_button">@aztuKonfrans2.Resources.Resource.load_paper</a>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/Content/js/delete_paper.js"></script>
+    <script>
+
+
+        var all_papers_list = $(`@Html.Action("MorePapers", "Paper", new { sender = Model, type = 1})`);
+
+        var allCount = 0;
+
+        function allPapers() {
+            for (var i = allCount * 10; i < (allCount + 1) * 10; i++) {
+                $('.def_papers').append(all_papers_list[i * 2]);
+                if (i * 2 == all_papers_list.length + 1) {
+                    $('.load_paper').remove();
+                    break;
+                }
+            }
+            allCount++;
+        }
+
+        allPapers();
+
+
+        $(document).on("click", ".load_paper_button", function (e) {
+            allPapers();
+
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        })
+
+
+
+        $('#searchPaper').change(function (e) {
+            var value = $(this).val();
+
+            if (value.length > 0) {
+
+                window.location.replace("/Paper/SearchedPaperResult?page=1&id=" + value + "&type=@ViewBag.PaperType")
+
+            }
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        });
+    </script>
+}

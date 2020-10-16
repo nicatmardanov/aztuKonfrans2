@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.all_users;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="all_users_content">
+    <div class="container">
+        <!-- d-flex align-items-center -->
+
+        <div class="all_users_page_top us_section">
+            <div class="row">
+                @{
+                    string searchedItem;
+                    if (!string.IsNullOrEmpty(ViewBag.SearchedItem))
+                    {
+                        searchedItem = "" + ViewBag.SearchedItem;
+                    }
+                    else
+                    {
+                        searchedItem = aztuKonfrans2.Resources.Resource.search_user;
+                    }
+
+                    <div class="elements_title col-8">
+                        <div class="float_left">
+                            <a href="/User/AllUsers/1">@aztuKonfrans2.Resources.Resource.all_users</a>
+                        </div>
+                    </div>
+                    <div class="form-group col-4 float-right search_user_section">
+                        @if (string.IsNullOrEmpty(ViewBag.SearchedItem))
+                        {
+                            <input type="text" class="form-control" id="searchUser" placeholder="@aztuKonfrans2.Resources.Resource.search_user" data-id="1">
+                        }
+                        else
+                        {
+                            <input type="text" class="form-control" id="searchUser" placeholder="@ViewBag.SearchedItem" data-id="1">
+                        }
+                        <a href="javascript:void(0)" class="d-flex align-items-center">
+                            <img src="~/Content/images/iconmonstr-magnifier-3.svg" />
+                        </a>
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+
+        <div class="all_users_section us_section">
+            <div class="row">
+                <div class="all_users_list_section col-4">
+                    <div class="all_users_title elements_title_s col-12">
+                        <span>@aztuKonfrans2.Resources.Resource.users</span>
+                    </div>
+                    <div id="all_users_list" class="all_users_list all_users_sec_content">
+                        <ul id="users_list">
+                            @foreach (aztuKonfrans2.Models.User item in Model)
+                            {
+                                string s = "";
+                                if (!string.IsNullOrEmpty(item.middle_name))
+                                {
+                                    s += item.first_name + " " + item.middle_name + " " + item.last_name;
+                                }
+                                else
+                                {
+                                    s += item.first_name + " " + item.last_name;
+                                }
+                                <li>
+                                    <a href="javascript:void(0)" data-id="@item.id">@s</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="all_users_info_section col-8">
+                    <div class="all_users_info_inner">
+                        <div class="row">
+                            <div class="all_users_title elements_title_s col-12">
+                                <span>@aztuKonfrans2.Resources.Resource.user_info</span>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div id="user_info_apr">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @{
+            int pre_page = ViewBag.PageId - 1;
+            int next_page = ViewBag.PageId + 1;
+            string url_link = "/User/AllUsers";
+        }
+
+        @if (ViewBag.MaxPage > 1)
+        {
+            <div class="all_users_page_bottom us_section">
+                <div class="row">
+                    <div class="col-4">
+                        @if (pre_page > 0)
+                    {
+                    <div class="prev_page_section">
+                        <div class="prev_page button">
+                            <a href="@url_link/@pre_page">@aztuKonfrans2.Resources.Resource.prev_page</a>
+                        </div>
+                    </div>
+                    }
+                    </div>
+                    <div class="col-4">
+                        <div class="float_left d-flex align-items-center pageInput">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="pageNumber" placeholder="@aztuKonfrans2.Resources.Resource.page №@ViewBag.PageId">
+                            </div>
+                        </div>
+                        <div class="float_left pageNumberClickSection d-flex align-items-center">
+                            <div class="button">
+                                <a href="javascript:void(0)" id="pageInputClick">@aztuKonfrans2.Resources.Resource.go</a>
+                            </div>
+                        </div>
+                    </div>
+                    @if (ViewBag.PageId < ViewBag.MaxPage)
+                {
+                <div class="col-4">
+                    <div class="next_page_section">
+                        <div class="next_page button">
+                            <a href="@url_link/@next_page">@aztuKonfrans2.Resources.Resource.next_page</a>
+                        </div>
+                    </div>
+                </div>
+                }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Content/js/user.js"></script>
+<script>
+        $('#pageInputClick').click(function () {
+            window.location.href = "@url_link/" + $('#pageNumber').val();
+        })
+
+        $('#searchUser').change(function (e) {
+            var value = $(this).val();
+
+            if (value.length > 0) {
+                window.location.replace("/User/SearchedUsersResult?page=1&id=" + value);
+            }
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        });
+</script>
+}
+

@@ -1,0 +1,131 @@
+﻿﻿
+@{
+    Layout = null;
+}
+
+<div>
+    <div class="row">
+        <div class="all_users_info all_users_sec_content">
+            <div class="col-12 user_full_name">
+                <a href="javascript:void(0)">
+                    @{
+                        string full_name = "";
+                        if (string.IsNullOrEmpty(Model.middle_name))
+                        {
+                            full_name = Model.first_name + " " + Model.last_name;
+                        }
+                        else
+                        {
+                            full_name = Model.first_name + " " + Model.middle_name + " " + Model.last_name;
+                        }
+                    }
+                    <span class="user_info_rsp">@full_name</span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="javascript:void(0)">
+                    <span>@aztuKonfrans2.Resources.Resource.title: <span class="user_info_rsp">@aztuKonfrans2.Classes.AdditionalDBResource.title[(int)(Model.title_id - 1)]</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="javascript:void(0)">
+                    <span>@aztuKonfrans2.Resources.Resource.degree: <span class="user_info_rsp">@aztuKonfrans2.Classes.AdditionalDBResource.degree[(int)(Model.degree_id - 1)]</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="javascript:void(0)">
+                    <span>@aztuKonfrans2.Resources.Resource.institution: <span class="user_info_rsp">@Model.institution</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="javascript:void(0)">
+                    <span>@aztuKonfrans2.Resources.Resource.position: <span class="user_info_rsp">@Model.position</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="javascript:void(0)">
+                    <span>@aztuKonfrans2.Resources.Resource.country: <span class="user_info_rsp">@aztuKonfrans2.Classes.AdditionalDBResource.country[(int)(Model.country_id - 1)]</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="mailto:@Model.email">
+                    <span>Email: <span class="user_info_rsp">@Model.email</span></span>
+                </a>
+            </div>
+            <div class="col-12">
+                <a href="tel:@Model.phone">
+                    <span>@aztuKonfrans2.Resources.Resource.phone: <span class="user_info_rsp">@Model.phone</span></span>
+                </a>
+            </div>
+            <div class="col-12 user_full_name">
+                <a href="javascript:void(0)">
+                    <span class="user_info_rsp">@aztuKonfrans2.Resources.Resource.papers_of_users</span>
+                </a>
+            </div>
+
+            @{
+                int p_num = 1;
+                if (Model.Papers.Count > 0)
+                {
+                    foreach (aztuKonfrans2.Models.Paper item in Model.Papers)
+                    {
+                        if (item.isVisible > 0)
+                        {
+                            <div class="col-12">
+                                <a href="@item.file_path">
+                                    @{
+                                        string paper_name = p_num + ". " + item.title;
+                                        if (item.isApproved == (byte)0)
+                                        {
+                                            paper_name += " (" + aztuKonfrans2.Resources.Resource.not_approved + ")";
+                                        }
+                                    }
+                                    <span><span class="user_info_rsp">@paper_name</span></span>
+                                </a>
+                            </div>
+                            p_num++;
+                        }
+                    }
+                }
+                if (p_num == 1)
+                {
+                    <div class="col-12">
+                        <a href="javascript:void(0)">
+                            <span><span class="user_info_rsp">@aztuKonfrans2.Resources.Resource.no_paper</span></span>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@if (Model.email != User.Identity.Name)
+{
+    <div class="dactivate_user">
+
+        @if (Model.role_id == 3)
+        {
+            <div class="make_admin_section">
+                <div class="row">
+                    <div class="make_admin_user button button_red">
+                        <a href="javascript:void(0)" data-id="@Model.id">@aztuKonfrans2.Resources.Resource.remove_admin</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        else if (Model.role_id == 1)
+        {
+            <div class="make_admin_section">
+                <div class="row">
+                    <div class="remove_admin_user button button_red">
+                        <a href="javascript:void(0)" data-id="@Model.id">@aztuKonfrans2.Resources.Resource.make_admin</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+

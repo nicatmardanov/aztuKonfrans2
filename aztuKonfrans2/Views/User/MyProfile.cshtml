@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="profile_section">
+    <div class="container">
+        <div class="profile_info_section">
+            <div class="profile_info_inner">
+                <div class="row title_row">
+                    <div class="elements_title col-8 d-flex align-items-center">
+                        <span>@aztuKonfrans2.Resources.Resource.my_info</span>
+                    </div>
+                    <div class="edit_pr col-4 d-flex align-items-center">
+                        <a href="/User/EditProfile">@aztuKonfrans2.Resources.Resource.edit_profile</a>
+                    </div>
+                </div>
+                <div class="row profile_row">
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.first_name</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@Model.first_name</span>
+                        </div>
+                    </div>
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.last_name</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@Model.last_name</span>
+                        </div>
+                    </div>
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.title</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@aztuKonfrans2.Classes.AdditionalDBResource.title[Model.title_id - 1]</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row profile_row">
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.degree</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@aztuKonfrans2.Classes.AdditionalDBResource.degree[Model.degree_id - 1]</span>
+                        </div>
+                    </div>
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.institution</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@Model.institution</span>
+                        </div>
+                    </div>
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.position</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@Model.position</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row profile_row">
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.country</span>
+                        </div>
+                        <div class="info_text">
+                            <span>@aztuKonfrans2.Classes.AdditionalDBResource.country[Model.country_id - 1]</span>
+                        </div>
+                    </div>
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>Email</span>
+                        </div>
+                        <div class="info_text">
+                            <a href="mailto:@Model.email">@Model.email</a>
+                        </div>
+                    </div>
+
+                    <div class="user_info col-4">
+                        <div class="info_title">
+                            <span>@aztuKonfrans2.Resources.Resource.phone</span>
+                        </div>
+                        <div class="info_text">
+                            <a href="tel:@Model.phone">@Model.phone</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="profile_info_section" id="profile_papers">
+            <div class="profile_info_inner">
+                <div class="row">
+                    <div class="elements_title col-12">
+                        <span>@aztuKonfrans2.Resources.Resource.my_papers</span>
+                    </div>
+                </div>
+
+                @{
+                    int paper_num = 1;
+                    foreach (aztuKonfrans2.Models.Paper item in Model.Papers)
+                    {
+                        if (item.isVisible == 1)
+                        {
+                                <div class="row paper_row">
+                                    @if (item.isApproved == 0)
+                                    {
+                                        if (aztuKonfrans2.Classes.PaperDeadline.deadlineValue >= 0)
+                                        {
+                                            <div class="col-8 paper_list">
+                                                <a href="@item.file_path" class="paper_text">@paper_num. @item.title</a>
+                                            </div>
+                                            <div class="col-1 pap_app">
+                                                <a href="/Paper/Edit/@item.id">@aztuKonfrans2.Resources.Resource.edit</a>
+                                            </div>
+                                            <div class="col-3 pap_app">
+                                                <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.not_approved</a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="col-9 paper_list">
+                                                <a href="@item.file_path" class="paper_text">@paper_num. @item.title</a>
+                                            </div>
+                                            <div class="col-3 pap_app">
+                                                <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.not_approved</a>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div class="col-9 paper_list">
+                                            <a href="@item.file_path" class="paper_text">@paper_num. @item.title</a>
+                                        </div>
+                                        <div class="col-3 pap_app">
+                                            <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.approved</a>
+                                        </div>
+                                    }
+                                </div>
+                            paper_num++;
+                        }
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

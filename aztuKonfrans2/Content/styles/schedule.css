@@ -1,0 +1,52 @@
+
+.home{
+     height: 40vh !important;
+}
+
+
+.footer {
+	float:left;
+	margin-top: 6% !important;
+}
+
+.shudle{
+	    width: 70%;
+        float: left;
+}
+
+.span12{
+	    margin-left:25%;
+	    width: 100%;
+        float: left;
+}
+
+.th-dark{
+	background-color: #466CC4;
+}
+
+.th-dark2{
+	    background-color: #4273CA;
+}
+
+
+.th-light{
+	
+	    background-color: #3A88DA
+}
+
+.th-light2{
+	background-color: #339DEB;
+}
+
+.table thead th {
+	
+	color:white;
+}
+
+.light-green{
+	background-color: #28E8FF;
+    color: white;
+	
+}
+tbody{
+color: #656567;}

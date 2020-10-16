@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.edit_paper;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using aztuKonfrans2.Models
+<div class="submission_section">
+    <div class="container">
+        <div>
+            <div class="row">
+                <div class="elements_title col-12 t_center">
+                    <span>@aztuKonfrans2.Resources.Resource.edit_paper</span>
+                </div>
+            </div>
+        </div>
+        <div class="submission-requirements sub_section">
+            <div class="row">
+                <div class="elements_title_s col-12">
+                    <span>@aztuKonfrans2.Resources.Resource.submission_requirements</span>
+                </div>
+            </div>
+            <div class="row g_row">
+                <div class="requirements_list col-12">
+                    <span>1. @aztuKonfrans2.Resources.Resource.s_req1</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>2. @aztuKonfrans2.Resources.Resource.s_req2</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>3. @aztuKonfrans2.Resources.Resource.s_req3 </span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>4. @aztuKonfrans2.Resources.Resource.s_req4</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>5. @aztuKonfrans2.Resources.Resource.s_req5</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>6. @aztuKonfrans2.Resources.Resource.s_req6</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>7. @aztuKonfrans2.Resources.Resource.s_req7</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>
+                        8. @aztuKonfrans2.Resources.Resource.s_req8<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Paper/Submission">www.az-tr-conference2019.com</a>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:subhan.namazov@aztu.edu.az">subhan.namazov@aztu.edu.az</a>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:subhan_namazov@daadalumni.de">subhan_namazov@daadalumni.de</a>
+                    </span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>9. @aztuKonfrans2.Resources.Resource.s_req9</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>10. @aztuKonfrans2.Resources.Resource.s_req10</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>11. @aztuKonfrans2.Resources.Resource.s_req11</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>12. @aztuKonfrans2.Resources.Resource.s_req12</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>13. @aztuKonfrans2.Resources.Resource.s_req13</span>
+                </div>
+                <div class="requirements_list col-12">
+                    <span>14. @aztuKonfrans2.Resources.Resource.s_req14</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="submit_paper">
+            <div class="submission_form">
+                <form>
+                    <div class="sub_section">
+                        <div class="form-group">
+                            <label for="inputTitlePaper">@aztuKonfrans2.Resources.Resource.submit_title @aztuKonfrans2.Resources.Resource.submit_title_max</label>
+                            <input type="text" class="form-control" id="inputTitlePaper" placeholder="@aztuKonfrans2.Resources.Resource.submit_title" maxlength="200" name="title" value="@Model.title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="usr_tpc">@aztuKonfrans2.Resources.Resource.topic:</label>
+                            <select class="form-control" id="usr_sd" name="topic_id">
+                                @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.topic.Length; i++)
+                                {
+                                    if (i + 1 == Model.topic_id)
+                                    {
+                                        <option value="@(i + 1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@(i + 1)">@aztuKonfrans2.Classes.AdditionalDBResource.topic[i]</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    @{
+                        foreach (Paper_Author item in Model.Paper_Author)
+                        {
+                            if (item.Author != null && item.isVisible==1)
+                            {
+                                <div class="another_author_information sub_section" id="another_author">
+                                    <div class="elements_title_s">
+                                        <span>@aztuKonfrans2.Resources.Resource.another_author</span>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-4" style="display:none">
+                                            <input type="hidden" class="form-control hidden_inp" value="@item.author_id" name="id">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorFullName">@aztuKonfrans2.Resources.Resource.full_name:</label>
+                                            <input type="text" class="form-control newAuthorFullName" id="newAuthorFullName" required placeholder="@aztuKonfrans2.Resources.Resource.full_name" value="@item.Author.full_name" name="full_name">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorTitle">@aztuKonfrans2.Resources.Resource.title:</label>
+                                            <select class="form-control newAuthorTitle" id="newAuthorTitle" name="title_id">
+                                                @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.title.Length; i++)
+                                                {
+                                                    if (i + 1 == item.Author.title_id)
+                                                    {
+                                                        <option value="@(i + 1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.title[i]</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@(i + 1)">@aztuKonfrans2.Classes.AdditionalDBResource.title[i]</option>
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorDegree">@aztuKonfrans2.Resources.Resource.degree:</label>
+                                            <select class="form-control newAuthorDegree" id="newAuthorDegree" name="degree_id">
+                                                @for (int i = 0; i < aztuKonfrans2.Classes.AdditionalDBResource.degree.Length; i++)
+                                                {
+                                                    if (i + 1 == item.Author.degree_id)
+                                                    {
+                                                        <option value="@(i+1)" selected>@aztuKonfrans2.Classes.AdditionalDBResource.degree[i]</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@(i+1)">@aztuKonfrans2.Classes.AdditionalDBResource.degree[i]</option>
+
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorCountry">@aztuKonfrans2.Resources.Resource.country:</label>
+                                            <select id="newAuthorCountry" name="country_id" class="form-control newAuthorCountry">
+                                                @{
+                                                    string[] countries = aztuKonfrans2.Classes.AdditionalDBResource.country;
+                                                    Array.Sort(countries);
+                                                    int index = 0;
+                                                    for (int i = 0; i < countries.Length; i++)
+                                                    {
+                                                        index = Array.IndexOf(aztuKonfrans2.Classes.AdditionalDBResource.country, countries[i]);
+                                                        if (index + 1 == item.Author.country_id)
+                                                        {
+                                                            <option value="@(index+1)" selected>@countries[i]</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@(index+1)">@countries[i]</option>
+                                                        }
+                                                    }
+                                                }
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorEmail">Email:</label>
+                                            <input type="email" class="form-control newAuthorEmail" id="newAuthorEmail" required placeholder="Email" value="@item.Author.email" name="email">
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label class="control-label" for="newAuthorPhone">@aztuKonfrans2.Resources.Resource.phone:</label>
+                                            <input type="tel" class="form-control newAuthorPhone" id="newAuthorPhone" required value="@item.Author.phone" placeholder="@aztuKonfrans2.Resources.Resource.for_instance +994125391332" name="phone">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label class="control-label" for="newAuthorInstituion">@aztuKonfrans2.Resources.Resource.institution:</label>
+                                            <input type="text" class="form-control newAuthorInstituion" id="newAuthorInstituion" required value="@item.Author.institution" placeholder="@aztuKonfrans2.Resources.Resource.institution" name="institution">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="control-label" for="newAuthorPosition">@aztuKonfrans2.Resources.Resource.position:</label>
+                                            <input type="text" class="form-control newAuthorPosition" id="newAuthorPosition" required value="@item.Author.position" placeholder="@aztuKonfrans2.Resources.Resource.position" name="position">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0)" class="remove_author btn btn-danger">- @aztuKonfrans2.Resources.Resource.remove_author</a>
+                                    </div>
+
+                                </div>
+                            }
+                        }
+                    }
+
+                    <div class="sub_section sub_add_author">
+                        <a href="javascript:void(0)" class="add_author btn btn-primary">+ @aztuKonfrans2.Resources.Resource.add_author</a>
+                    </div>
+
+
+                    <div class="sub_section">
+                        <div class="elements_title_s">
+                            <span>
+                                @aztuKonfrans2.Resources.Resource.attach_file
+                            </span>
+                        </div>
+                        <div class="custom-file form-group col-12 full_paper_file">
+                            <input type="file" class="custom-file-input" value="@Model.file_path" id="paperFile" accept=".doc, .docx, .pdf" name="paper_file">
+                            <label class="custom-file-label" for="paperFile">@Model.title</label>
+                        </div>
+                    </div>
+
+                    <div class="submit_form">
+                        <div class="button element_button button_1 submission_submit">
+                            <a href="javascript:void(0)" id="submit_form_button">@aztuKonfrans2.Resources.Resource.submit</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        page_type = 0;
+        pl=@Model.id;
+    </script>
+    <script src="~/Content/js/edit_paper.js"></script>
+}

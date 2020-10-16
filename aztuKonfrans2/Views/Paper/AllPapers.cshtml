@@ -1,0 +1,218 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.all_papers;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="all_papers_content">
+    <div class="container">
+        <div class="all_papers_page_top us_section">
+            <div class="row">
+                @{
+                    string searchedItem, nonApprovedPaperUrl;
+                    if (!string.IsNullOrEmpty(ViewBag.SearchedItem))
+                    {
+                        searchedItem = "" + ViewBag.SearchedItem;
+                        nonApprovedPaperUrl = this.Request.RawUrl.Substring(0, this.Request.RawUrl.Length - 1) + "0";
+                    }
+                    else
+                    {
+                        searchedItem = aztuKonfrans2.Resources.Resource.search_paper;
+                        nonApprovedPaperUrl = "/Paper/NonApprovedPapers";
+                    }
+                    <div class="elements_title col-8">
+                        <div class="float_left">
+                            <a href="/Paper/AllPapers/1">@aztuKonfrans2.Resources.Resource.all_papers</a>
+                        </div>
+                        <div class="float_right all_users_type_list">
+                            <ul>
+
+                                <li class="float_left d-flex align-items-center">
+                                    <a href="javascript:void(0)" class="all_users_type_active">@aztuKonfrans2.Resources.Resource.all_papers</a>
+                                </li>
+                                <li class="float_left d-flex align-items-center">
+                                    <a href=@nonApprovedPaperUrl>@aztuKonfrans2.Resources.Resource.non_approved_papers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group col-4 float-right search_paper_section">
+                        <input type="text" class="form-control" id="searchPaper" placeholder="@searchedItem" data-id="1">
+                        <a href="javascript:void(0)" class="d-flex align-items-center">
+                            <img src="~/Content/images/iconmonstr-magnifier-3.svg" />
+                        </a>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+
+        <div class="paper_section a_paper_section table_section">
+            <div class="row">
+                <ul class="pt_heading">
+                    <li class="float-left paper_name">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.paper_name</a>
+                    </li>
+                    <li class="float-left paper_author">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.authors</a>
+                    </li>
+                    <li class="float-left paper_approve all_approve">
+                        <a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.approve</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="def_papers">
+                @foreach (aztuKonfrans2.Models.Paper item in Model)
+                {
+                    <div class="row">
+                        <ul class="pt_row">
+                            <li class="float-left paper_name">
+                                <a href="@item.file_path">@item.title</a>
+                            </li>
+                            <li class="float-left paper_author">
+                                @{
+                                    aztuKonfrans2.Models.aztuKonfransEntities konfEntities = new aztuKonfrans2.Models.aztuKonfransEntities();
+                                    string authors = "";
+                                    if (string.IsNullOrEmpty(item.User.middle_name))
+                                    {
+                                        authors = item.User.first_name + " " + item.User.last_name;
+                                    }
+                                    else
+                                    {
+                                        authors = item.User.first_name + " " + item.User.middle_name + " " + item.User.last_name;
+                                    }
+                                    var _author = item.Paper_Author.Where(x => x.isVisible == 1).ToList();
+
+                                    if (_author.Count > 0 && _author[0].author_id > 0)
+                                    {
+                                        authors += ", ";
+                                        foreach (aztuKonfrans2.Models.Paper_Author a_item in _author)
+                                        {
+                                            if (a_item.Author != null)
+                                            {
+                                                authors += a_item.Author.full_name + ", ";
+                                            }
+                                        }
+
+                                        authors = authors.Substring(0, authors.Length - 2);
+                                    }
+                                }
+                                <a href="javascript:void(0)" data-id="@item.id">@authors</a>
+                            </li>
+                            @if (item.isApproved == 0)
+                            {
+                                <li class="float-left paper_app all_approve paper_approve">
+                                    <a href="javascript:void(0)" data-id="@item.id">@aztuKonfrans2.Resources.Resource.approve</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="float-left paper_app all_approve paper_disapprove">
+                                    <a href="javascript:void(0)" data-id="@item.id">@aztuKonfrans2.Resources.Resource.disapprove</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+        @if (ViewBag.MaxPage > 1)
+        {
+
+            int pre_page = ViewBag.PageId - 1;
+            int next_page = ViewBag.PageId + 1;
+            string pre_page_url_link = "";
+            string next_page_url_link = "";
+
+            if (!string.IsNullOrEmpty(ViewBag.SearchedItem))
+            {
+                pre_page_url_link = "/Paper/SearchedPaperResult?page=" + pre_page + "&id=" + ViewBag.SearchedItem + "&type=1";
+                next_page_url_link = "/Paper/SearchedPaperResult?page=" + next_page + "&id=" + ViewBag.SearchedItem + "&type=1";
+            }
+            else
+            {
+                pre_page_url_link = "/Paper/AllPapers/" + pre_page;
+                next_page_url_link = "/Paper/AllPapers/" + next_page;
+            }
+
+            <div class="all_users_page_bottom us_section">
+                <div class="row">
+                    <div class="col-4">
+                        @if (pre_page > 0)
+                        {
+                            <div class="prev_page_section">
+                                <div class="prev_page button">
+                                    <a href="@pre_page_url_link">@aztuKonfrans2.Resources.Resource.prev_page</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-4">
+                        <div class="float_left d-flex align-items-center pageInput">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="pageNumber" placeholder="@aztuKonfrans2.Resources.Resource.page №@ViewBag.PageId">
+                            </div>
+                        </div>
+                        <div class="float_left pageNumberClickSection d-flex align-items-center">
+                            <div class="button">
+                                <a href="javascript:void(0)" id="pageInputClick">@aztuKonfrans2.Resources.Resource.go</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        @if (ViewBag.PageId < ViewBag.MaxPage)
+                        {
+                            <div class="next_page_section">
+                                <div class="next_page button">
+                                    <a href="@next_page_url_link">@aztuKonfrans2.Resources.Resource.next_page</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/js/paper.js"></script>
+    @if (string.IsNullOrEmpty(ViewBag.SearchedItem))
+    {
+        <script>
+            $('#pageInputClick').click(function () {
+                window.location.href = "/Paper/AllPapers/" + $('#pageNumber').val();
+            })
+        </script>
+    }
+    else
+    {
+        <script>
+            $('#pageInputClick').click(function () {
+                window.location.href = "/Paper/SearchedPaperResult?page=" + $('#pageNumber').val()+"&id=@ViewBag.SearchedItem&type=1";
+            })
+        </script>
+    }
+
+
+    <script>
+        $('#searchPaper').change(function (e) {
+            var value = $(this).val();
+
+            if (value.length > 0) {
+                window.location.replace("/Paper/SearchedPaperResult?page=1&id=" + value + "&type=@ViewBag.PaperType")
+            }
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            return false;
+        });
+    </script>
+
+}

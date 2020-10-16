@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = aztuKonfrans2.Resources.Resource.contact_us;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section headExtra{
+    <link rel="stylesheet" type="text/css" href="/Content/styles/contact.css">
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+
+    <style>
+        header {
+            margin-bottom: 0 !important;
+        }
+    </style>
+}
+
+<!-- Contact -->
+
+<div class="contact">
+    <div class="contact_map_background">
+
+        <!-- Contact Map -->
+        <div class="contact_map">
+
+            <!-- Google Map -->
+            <div class="map">
+                <div id="mapContainer"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <!-- all_contacts -->
+        <div class="contacts_chead">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="contact_form_container">
+                        <div class="contact_form_title contact_form_titles"><a href="http://www.aztu.edu.az">@aztuKonfrans2.Resources.Resource.azTU</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contacts_csection">
+            <div class="row">
+                <div class="col-6">
+                    <div class="contact_info_container">
+                        <div class="contact_info_list_container">
+                            <ul class="contact_info_list">
+                                <li class="d-flex flex-row">
+                                    <div>
+                                        <div class="contact_info_icon text-center">
+                                            <img class="info_img" src="/Content/images/info_icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="contact_info_text"><a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.vise_chairs_2</a></div>
+                                </li>
+                                <li class="d-flex flex-row align-items-start justify-content-start">
+                                    <div>
+                                        <div class="contact_info_icon text-center">
+                                            <img src="/Content/images/phone_icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="contact_info_text"><a href="tel:+994125391332">(+994 12) 539-13-32</a></div>
+                                </li>
+                                <li class="d-flex flex-row align-items-start justify-content-start">
+                                    <div>
+                                        <div class="contact_info_icon text-center">
+                                            <img src="/Content/images/mail_icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="contact_info_text">
+                                        <a href="mailto:subhan.namazov@aztu.edu.az ">subhan.namazov@aztu.edu.az </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="contact_info_container">
+                        <div class="contact_info_list_container">
+                            <ul class="contact_info_list">
+                                <li class="d-flex flex-row">
+                                    <div>
+                                        <div class="contact_info_icon text-center">
+                                            <img class="info_img" src="/Content/images/info_icon.svg" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="contact_info_text"><a href="javascript:void(0)">@aztuKonfrans2.Resources.Resource.ex_secretary_2</a></div>
+                                </li>
+                                <li class="d-flex flex-row align-items-start justify-content-start">
+                                    <div>
+                                        <div class="contact_info_icon text-center">
+                                            <img src="/Content/images/mail_icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="contact_info_text">
+                                        <a href="mailto:marziya.aghayeva@aztu.edu.az">marziya.aghayeva@aztu.edu.az</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="/Content/js/contact.js"></script>
+    <script>
+        $('.contact_nav').addClass('active');
+        var platform = new H.service.Platform({
+            'app_id': 'tGOyvLJdawuk1Hp0PCOy',
+            'app_code': 'uyvL_vnVzo4l_7TiKcn7HQ'
+        });
+        var defaultLayers = platform.createDefaultLayers();
+
+        var map = new H.Map(
+            document.getElementById('mapContainer'),
+            defaultLayers.normal.map, {
+                zoom: 10,
+                center: {
+                    lng: 49.81653,
+                    lat: 40.37025
+                }
+            });
+
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        var mapSettings = ui.getControl('mapsettings');
+        var zoom = ui.getControl('zoom');
+        var scalebar = ui.getControl('scalebar');
+        var panorama = ui.getControl('panorama');
+
+        var icon = new H.map.Icon('/Content/images/Webp.net-resizeimage.png');
+
+        var marker = new H.map.Marker({
+            lng: 49.81653,
+            lat: 40.37025
+        }, {
+            icon: icon
+        });
+
+        map.addObject(marker);
+    </script>
+}
+

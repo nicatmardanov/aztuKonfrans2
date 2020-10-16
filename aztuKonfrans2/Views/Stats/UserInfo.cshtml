@@ -1,0 +1,71 @@
+﻿
+@{
+    if (ViewBag.Id == 14)
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.az_paper_users;
+    }
+    else if (ViewBag.Id == 220)
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.tr_paper_users;
+    }
+    else if (ViewBag.Id == 0)
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.infAppUser;
+    }
+    else
+    {
+        ViewBag.Title = aztuKonfrans2.Resources.Resource.error;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using aztuKonfrans2.Models;
+
+<div class="stats_user_page">
+    <div class="container">
+        <div class="stats_user">
+            <div class="row">
+                <div class="elements_title col-12 d-flex align-items-center">
+                    @{
+                        string title = "";
+
+                        if (ViewBag.Id == 14)
+                        {
+                            title = aztuKonfrans2.Resources.Resource.az_paper_users;
+                        }
+                        else if (ViewBag.Id == 220)
+                        {
+                            title = aztuKonfrans2.Resources.Resource.tr_paper_users;
+                        }
+                        else if (ViewBag.Id == 0)
+                        {
+                            title = aztuKonfrans2.Resources.Resource.infAppUser;
+                        }
+                        else
+                        {
+                            <script>
+                                window.location.href = "/Error";
+                            </script>
+                        }
+                    }
+                    <span>@title:</span>
+                </div>
+            </div>
+            <div class="user_information_stats">
+                @{
+                    string s = ""; int i = 1;
+                    foreach (Paper item in Model)
+                    {
+                        s = i + ". " + item.User.first_name + " " + item.User.last_name + ", " + item.User.email + ", " + item.User.institution + ", " + item.User.position + ", " + item.title + ", " + aztuKonfrans2.Classes.AdditionalDBResource.topic[(int)item.topic_id - 1];
+                        i++;
+                        <div class="row">
+                            <div class="col-12">
+                                <span>@s</span>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

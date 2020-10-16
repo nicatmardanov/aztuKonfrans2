@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_conf" xml:space="preserve">
+    <value>About ICEST</value>
+  </data>
+  <data name="about_txt_1" xml:space="preserve">
+    <value>The conference is to discuss the actual problems of the universities of Azerbaijan and Turkey in the fields of education, science and technology, to identify their prospectives and summarize the scientific research updates in these areas.</value>
+  </data>
+  <data name="about_txt_2" xml:space="preserve">
+    <value>The conference is organize by close help of the partners of Ministry of Education of the Republic of Azerbaijan, Council of Higher Education of the Republic of Turkey, Turkish Cooperation and Coordination Agency, Azerbaijan Technical University</value>
+  </data>
+  <data name="about_txt_3" xml:space="preserve">
+    <value>The practical significance of the conference is to further enhance cooperation between the universities of Azerbaijan and Turkey and strengthen the mutual ties in the areas of education, science and technology.</value>
+  </data>
+  <data name="accom" xml:space="preserve">
+    <value>Accommodation</value>
+  </data>
+  <data name="activate_user" xml:space="preserve">
+    <value>Approve User</value>
+  </data>
+  <data name="activity" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="activity_1" xml:space="preserve">
+    <value>Deadline For Electronic Version Of Articles</value>
+  </data>
+  <data name="activity_2" xml:space="preserve">
+    <value>Sending The Conference Program And Placing Them On Web Site:  www.az-tr-conference2019.com</value>
+  </data>
+  <data name="activity_3" xml:space="preserve">
+    <value>Works For The Plenary And Sectional Sessions Of The Conference</value>
+  </data>
+  <data name="add_author" xml:space="preserve">
+    <value>ADD ANOTHER AUTHOR</value>
+  </data>
+  <data name="all_papers" xml:space="preserve">
+    <value>All Papers</value>
+  </data>
+  <data name="all_users" xml:space="preserve">
+    <value>All Users</value>
+  </data>
+  <data name="another_author" xml:space="preserve">
+    <value>ANOTHER AUTHOR'S INFORMATION</value>
+  </data>
+  <data name="approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="assis_secretary_1" xml:space="preserve">
+    <value>Scientific Secretary of the Conference, Associate Professor Islam Islamov</value>
+  </data>
+  <data name="assis_secretary_2" xml:space="preserve">
+    <value>Scientific Secretary of the Conference, Associate Professor Marziya Aghayeva</value>
+  </data>
+  <data name="attach_file" xml:space="preserve">
+    <value>ATTACH YOUR FILE</value>
+  </data>
+  <data name="authors" xml:space="preserve">
+    <value>Authors</value>
+  </data>
+  <data name="auth_info" xml:space="preserve">
+    <value>AUTHOR'S INFORMATION</value>
+  </data>
+  <data name="azTU" xml:space="preserve">
+    <value>Azerbaijan Technical University</value>
+  </data>
+  <data name="azTU_address" xml:space="preserve">
+    <value>Azerbaijan Technical University, Huseyn Javid Ave. 25, Baku, Azerbaijan</value>
+  </data>
+  <data name="back_login" xml:space="preserve">
+    <value>Back Login</value>
+  </data>
+  <data name="browse" xml:space="preserve">
+    <value>BROWSE</value>
+  </data>
+  <data name="call_papers" xml:space="preserve">
+    <value>Call for Papers</value>
+  </data>
+  <data name="chairs" xml:space="preserve">
+    <value>Chairs of the Conference</value>
+  </data>
+  <data name="chairs_1" xml:space="preserve">
+    <value>Prof. Vilayat Valiyev – Rector of Azerbaijan Technical University</value>
+  </data>
+  <data name="chairs_2" xml:space="preserve">
+    <value>Prof. Dr. M. Mehmet Karaca – Rector of Istanbul Technical University</value>
+  </data>
+  <data name="choose_file" xml:space="preserve">
+    <value>CHOOSE FILE</value>
+  </data>
+  <data name="committee" xml:space="preserve">
+    <value>Committee</value>
+  </data>
+  <data name="committees" xml:space="preserve">
+    <value>Committees</value>
+  </data>
+  <data name="conf_info_1" xml:space="preserve">
+    <value>1st International Scientific-Practical Conferenence</value>
+  </data>
+  <data name="conf_info_2" xml:space="preserve">
+    <value>December 18-20, 2019</value>
+  </data>
+  <data name="contact_us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="dates" xml:space="preserve">
+    <value>Dates</value>
+  </data>
+  <data name="date_1" xml:space="preserve">
+    <value>November 20, 2019</value>
+  </data>
+  <data name="date_2" xml:space="preserve">
+    <value>November 30, 2019</value>
+  </data>
+  <data name="date_3" xml:space="preserve">
+    <value>December 18–20, 2019</value>
+  </data>
+  <data name="deactivate_user" xml:space="preserve">
+    <value>Deactivate User</value>
+  </data>
+  <data name="dear" xml:space="preserve">
+    <value>Dear</value>
+  </data>
+  <data name="degree" xml:space="preserve">
+    <value>Scientific Degree</value>
+  </data>
+  <data name="degree_1" xml:space="preserve">
+    <value>PhD</value>
+  </data>
+  <data name="degree_2" xml:space="preserve">
+    <value>Doctor of Science</value>
+  </data>
+  <data name="disactive_account" xml:space="preserve">
+    <value>Please Wait Until The Staff Activate Your Account!</value>
+  </data>
+  <data name="disapprove" xml:space="preserve">
+    <value>Disapprove</value>
+  </data>
+  <data name="edit_profile" xml:space="preserve">
+    <value>Edit Account</value>
+  </data>
+  <data name="email_exists" xml:space="preserve">
+    <value>This Email Is Already Exist! Please Write Another Email!</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Sorry, that page can't be found.</value>
+  </data>
+  <data name="ex_secretary" xml:space="preserve">
+    <value>Executive Secretaries</value>
+  </data>
+  <data name="ex_secretary_1" xml:space="preserve">
+    <value>Assoc. Prof. Islam Islamov – Director of Science and Innovation Department at Azerbaijan Technical University</value>
+  </data>
+  <data name="ex_secretary_2" xml:space="preserve">
+    <value>Assoc. Prof. Marziya Aghayeva – Director of International Relations Department at Azerbaijan Technical University</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="forgot_pass" xml:space="preserve">
+    <value>Forgot Password?</value>
+  </data>
+  <data name="form_after" xml:space="preserve">
+    <value>Please wait a little</value>
+  </data>
+  <data name="for_instance" xml:space="preserve">
+    <value>f.i.</value>
+  </data>
+  <data name="full_name" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="go" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="honorary_chairs" xml:space="preserve">
+    <value>Honorary Chairs of the Conference</value>
+  </data>
+  <data name="honorary_chairs_1" xml:space="preserve">
+    <value>Jeyhun Bayramov – Minister of Education of the Republic of Azerbaijan</value>
+  </data>
+  <data name="honorary_chairs_2" xml:space="preserve">
+    <value>Prof. Dr. M. A. Yekta Saraç – President of the Council of Higher Education of the Republic of Turkey</value>
+  </data>
+  <data name="imp_dates" xml:space="preserve">
+    <value>Important Dates</value>
+  </data>
+  <data name="institution" xml:space="preserve">
+    <value>Name of institution</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="log_out" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="make_admin" xml:space="preserve">
+    <value>Make Admin</value>
+  </data>
+  <data name="middle_name" xml:space="preserve">
+    <value>Middle Name</value>
+  </data>
+  <data name="my_info" xml:space="preserve">
+    <value>My Information</value>
+  </data>
+  <data name="my_papers" xml:space="preserve">
+    <value>My Papers</value>
+  </data>
+  <data name="next_page" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="non_approved_papers" xml:space="preserve">
+    <value>Non-Approved Papers</value>
+  </data>
+  <data name="non_approved_users" xml:space="preserve">
+    <value>Non-Approved Users</value>
+  </data>
+  <data name="not_approved" xml:space="preserve">
+    <value>Not Approved Yet</value>
+  </data>
+  <data name="not_find_account" xml:space="preserve">
+    <value>Couldn't Find Your Account!</value>
+  </data>
+  <data name="no_paper" xml:space="preserve">
+    <value>There Is No Paper Of This User To Show</value>
+  </data>
+  <data name="org_az" xml:space="preserve">
+    <value>Organizing Committee by Azerbaijan Universities</value>
+  </data>
+  <data name="org_az_1" xml:space="preserve">
+    <value>National Aviation Academy</value>
+  </data>
+  <data name="org_az_10" xml:space="preserve">
+    <value>Sumgait State University</value>
+  </data>
+  <data name="org_az_11" xml:space="preserve">
+    <value>Azerbaijan University of Languages</value>
+  </data>
+  <data name="org_az_12" xml:space="preserve">
+    <value>Azerbaijan State Pedagogical University</value>
+  </data>
+  <data name="org_az_13" xml:space="preserve">
+    <value>Baku Slavic University</value>
+  </data>
+  <data name="org_az_14" xml:space="preserve">
+    <value>Baku Higher Oil School</value>
+  </data>
+  <data name="org_az_15" xml:space="preserve">
+    <value>Academy of Public Administration</value>
+  </data>
+  <data name="org_az_16" xml:space="preserve">
+    <value>Azerbaijan State University of Culture and Arts</value>
+  </data>
+  <data name="org_az_17" xml:space="preserve">
+    <value>Azerbaijan State Academy of Physical Education and Sport</value>
+  </data>
+  <data name="org_az_18" xml:space="preserve">
+    <value>Azerbaijan Tourism and Management University</value>
+  </data>
+  <data name="org_az_19" xml:space="preserve">
+    <value>Azerbaijan State Marine Academy</value>
+  </data>
+  <data name="org_az_2" xml:space="preserve">
+    <value>ADA University</value>
+  </data>
+  <data name="org_az_20" xml:space="preserve">
+    <value>Azerbaijan State Agricultural University</value>
+  </data>
+  <data name="org_az_21" xml:space="preserve">
+    <value>Azerbaijan Technological University</value>
+  </data>
+  <data name="org_az_22" xml:space="preserve">
+    <value>Lankaran State University</value>
+  </data>
+  <data name="org_az_23" xml:space="preserve">
+    <value>Ganja State University</value>
+  </data>
+  <data name="org_az_24" xml:space="preserve">
+    <value>Mingachevir State University</value>
+  </data>
+  <data name="org_az_25" xml:space="preserve">
+    <value>Nakhchivan State University</value>
+  </data>
+  <data name="org_az_26" xml:space="preserve">
+    <value>Nakhchivan Teachers Institute</value>
+  </data>
+  <data name="org_az_27" xml:space="preserve">
+    <value>Baku branch of I.M. Sechenov First Moscow State Medical University</value>
+  </data>
+  <data name="org_az_28" xml:space="preserve">
+    <value>Baku Business University</value>
+  </data>
+  <data name="org_az_29" xml:space="preserve">
+    <value>Azerbaijan University</value>
+  </data>
+  <data name="org_az_3" xml:space="preserve">
+    <value>Baku Branch of Lomonosov Moscow State University</value>
+  </data>
+  <data name="org_az_30" xml:space="preserve">
+    <value>Khazar University</value>
+  </data>
+  <data name="org_az_31" xml:space="preserve">
+    <value>Odlar Yurdu University</value>
+  </data>
+  <data name="org_az_32" xml:space="preserve">
+    <value>Baku Eurasian University</value>
+  </data>
+  <data name="org_az_33" xml:space="preserve">
+    <value>Baku Girls University</value>
+  </data>
+  <data name="org_az_34" xml:space="preserve">
+    <value>Azerbaijan Cooperation University</value>
+  </data>
+  <data name="org_az_35" xml:space="preserve">
+    <value>Western Caspian University</value>
+  </data>
+  <data name="org_az_36" xml:space="preserve">
+    <value>Azerbaijan Higher Military School named after Heydar Aliyev</value>
+  </data>
+  <data name="org_az_37" xml:space="preserve">
+    <value>Azerbaijan State Security Service Academy of the Republic of Azerbaijan named after Heydar Aliyev</value>
+  </data>
+  <data name="org_az_38" xml:space="preserve">
+    <value>The Ministry of Internal Affairs of the Republic of Azerbaijan, Police Academy</value>
+  </data>
+  <data name="org_az_39" xml:space="preserve">
+    <value>Academy of State Border Service of the Republic of Azerbaijan</value>
+  </data>
+  <data name="org_az_4" xml:space="preserve">
+    <value>Baku State University</value>
+  </data>
+  <data name="org_az_40" xml:space="preserve">
+    <value>Academy of the Ministry of Emergency Situations of Azerbaijan</value>
+  </data>
+  <data name="org_az_41" xml:space="preserve">
+    <value>Chief of the Higher Military School of Internal Troops of Ministry of Internal Affairs of Azerbaijan</value>
+  </data>
+  <data name="org_az_42" xml:space="preserve">
+    <value>Academy of State Customs Committee of the Republic of Azerbaijan</value>
+  </data>
+  <data name="org_az_5" xml:space="preserve">
+    <value>Baku Engineering University</value>
+  </data>
+  <data name="org_az_6" xml:space="preserve">
+    <value>Azerbaijan State Oil and Industry University</value>
+  </data>
+  <data name="org_az_7" xml:space="preserve">
+    <value>Azerbaijan Medical University</value>
+  </data>
+  <data name="org_az_8" xml:space="preserve">
+    <value>Azerbaijan State Economic University</value>
+  </data>
+  <data name="org_az_9" xml:space="preserve">
+    <value>Azerbaijan University of Architecture and Construction</value>
+  </data>
+  <data name="org_tr" xml:space="preserve">
+    <value>Organizing Committee Members</value>
+  </data>
+  <data name="org_tr_1" xml:space="preserve">
+    <value>Istanbul University</value>
+  </data>
+  <data name="org_tr_10" xml:space="preserve">
+    <value>Kafkas University</value>
+  </data>
+  <data name="org_tr_11" xml:space="preserve">
+    <value>Karabuk University</value>
+  </data>
+  <data name="org_tr_12" xml:space="preserve">
+    <value>Kirklareli University</value>
+  </data>
+  <data name="org_tr_13" xml:space="preserve">
+    <value>Kocaeli University</value>
+  </data>
+  <data name="org_tr_14" xml:space="preserve">
+    <value>Ardahan University</value>
+  </data>
+  <data name="org_tr_15" xml:space="preserve">
+    <value>Bartin University</value>
+  </data>
+  <data name="org_tr_16" xml:space="preserve">
+    <value>Zonguldak Bülent Ecevit University</value>
+  </data>
+  <data name="org_tr_17" xml:space="preserve">
+    <value>Erzurum Technical University</value>
+  </data>
+  <data name="org_tr_18" xml:space="preserve">
+    <value>Erzurum Ataturk University</value>
+  </data>
+  <data name="org_tr_19" xml:space="preserve">
+    <value>Gazi University</value>
+  </data>
+  <data name="org_tr_2" xml:space="preserve">
+    <value>Istanbul University (Cerrahpaşa)</value>
+  </data>
+  <data name="org_tr_20" xml:space="preserve">
+    <value>Gaziantep University</value>
+  </data>
+  <data name="org_tr_21" xml:space="preserve">
+    <value>Manisa Celal Bayar University</value>
+  </data>
+  <data name="org_tr_22" xml:space="preserve">
+    <value>Hatay Mustafa Kemal University</value>
+  </data>
+  <data name="org_tr_23" xml:space="preserve">
+    <value>Muş Alparslan University</value>
+  </data>
+  <data name="org_tr_24" xml:space="preserve">
+    <value>Süleyman Demirel University</value>
+  </data>
+  <data name="org_tr_25" xml:space="preserve">
+    <value>Hitit University</value>
+  </data>
+  <data name="org_tr_3" xml:space="preserve">
+    <value>Istanbul Technical University</value>
+  </data>
+  <data name="org_tr_4" xml:space="preserve">
+    <value>Izmir Katip Çelebi University</value>
+  </data>
+  <data name="org_tr_5" xml:space="preserve">
+    <value>Yıldız Technical University</value>
+  </data>
+  <data name="org_tr_6" xml:space="preserve">
+    <value>Akdeniz University</value>
+  </data>
+  <data name="org_tr_7" xml:space="preserve">
+    <value>Alanya Alaaddin Keykubat University</value>
+  </data>
+  <data name="org_tr_8" xml:space="preserve">
+    <value>Ankara University</value>
+  </data>
+  <data name="org_tr_9" xml:space="preserve">
+    <value>Ankara National Defence and Security Institute</value>
+  </data>
+  <data name="page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="papers" xml:space="preserve">
+    <value>Papers</value>
+  </data>
+  <data name="papers_of_users" xml:space="preserve">
+    <value>Papers Of The User</value>
+  </data>
+  <data name="paper_name" xml:space="preserve">
+    <value>Paper Name</value>
+  </data>
+  <data name="paper_submission" xml:space="preserve">
+    <value>Paper Submission</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="pass_not_matching" xml:space="preserve">
+    <value>Entered Password Is Not Matching!</value>
+  </data>
+  <data name="pass_placeholder" xml:space="preserve">
+    <value>Enter your password</value>
+  </data>
+  <data name="pass_requirement" xml:space="preserve">
+    <value>The Password Must Be At Least 6 Characters Long!</value>
+  </data>
+  <data name="pass_was_sent" xml:space="preserve">
+    <value>Password has been sent to your e-mail address</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="prev_page" xml:space="preserve">
+    <value>Previous Page</value>
+  </data>
+  <data name="profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="program" xml:space="preserve">
+    <value>Program</value>
+  </data>
+  <data name="registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="reg_success" xml:space="preserve">
+    <value>Thank you! Your registration was successful!</value>
+  </data>
+  <data name="remove_admin" xml:space="preserve">
+    <value>Make User (Remove Admin Role)</value>
+  </data>
+  <data name="remove_author" xml:space="preserve">
+    <value>REMOVE THIS AUTHOR</value>
+  </data>
+  <data name="repass_placeholder" xml:space="preserve">
+    <value>Re-enter your password</value>
+  </data>
+  <data name="re_password" xml:space="preserve">
+    <value>Re-enter password</value>
+  </data>
+  <data name="schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="sci_sec" xml:space="preserve">
+    <value>Scientific Secretary of the Conference</value>
+  </data>
+  <data name="sci_secretary" xml:space="preserve">
+    <value>Prof. Subhan Namazov – Vice-Rector of Azerbaijan Technical University on International Relations</value>
+  </data>
+  <data name="search_paper" xml:space="preserve">
+    <value>Search Paper</value>
+  </data>
+  <data name="search_user" xml:space="preserve">
+    <value>Search User</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="sponsors" xml:space="preserve">
+    <value>Sponsors</value>
+  </data>
+  <data name="submission" xml:space="preserve">
+    <value>Submission</value>
+  </data>
+  <data name="submission_requirements" xml:space="preserve">
+    <value>REQUIREMENTS FOR THE CONFERENCE MATERIALS (ABSTRACT AND FULL-TEXT)</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="submit_title" xml:space="preserve">
+    <value>Title of the Paper</value>
+  </data>
+  <data name="submit_title_max" xml:space="preserve">
+    <value>(The maximum number of characters allowed is 200):</value>
+  </data>
+  <data name="submit_your_paper" xml:space="preserve">
+    <value>SUBMIT YOUR PAPER</value>
+  </data>
+  <data name="sub_success" xml:space="preserve">
+    <value>Thank you! Your file uploaded successfully!</value>
+  </data>
+  <data name="s_req1" xml:space="preserve">
+    <value>The article should be submitted in one of the languages of Azerbaijani, Turkish or English.</value>
+  </data>
+  <data name="s_req10" xml:space="preserve">
+    <value>Conference articles which are not approved by the commission will not be commented and manuscripts will not be returned back.</value>
+  </data>
+  <data name="s_req11" xml:space="preserve">
+    <value>The author is responsible for the information and facts contained in the text.</value>
+  </data>
+  <data name="s_req12" xml:space="preserve">
+    <value>Accepted articles to be published in the “Conference Proceedings”.</value>
+  </data>
+  <data name="s_req13" xml:space="preserve">
+    <value>Conference articles should be in a two-column-built-set and should not exceed the volume of 6 pages.</value>
+  </data>
+  <data name="s_req2" xml:space="preserve">
+    <value>The article must be prepared in MS Word program in A4 format (left and right – 2 cm, top and bottom – 2.5 cm), 12 point in Times New Roman font, 1.0 interlinear interval and text inside inscription 1 cm.</value>
+  </data>
+  <data name="s_req3" xml:space="preserve">
+    <value>The article should be prepared in the following sequence: author/s' full name – in the middle; author/s' work place, city and country – in the middle, at the end 6 point intervals (if the authors represent different organizations, the names of the authors and the organizations are numbered with the upper index); the title of the article – in capital letters, bold font, centered; at the end 6 point intervals, e-mail address.</value>
+  </data>
+  <data name="s_req4" xml:space="preserve">
+    <value>References: name of each reference is numbered according to the sequence of their use in the article, without translating.</value>
+  </data>
+  <data name="s_req5" xml:space="preserve">
+    <value>The table and figures are numbered in the article: table title at the top of the table and from the right side (for ex.: Table 1), figure title below of the figure and centered (for ex.: Figure 1), and the text is displayed with a blank line (top and bottom), leaving 1 (one) blank line.</value>
+  </data>
+  <data name="s_req6" xml:space="preserve">
+    <value>Mathematical expressions are compiled by using the formula editor of MS Word programme (Equation). Only the formulas used in the text are numbered. Formula is written in the middle of the line and the number is written in brackets on the right.</value>
+  </data>
+  <data name="s_req7" xml:space="preserve">
+    <value>When the article is sent to the conference, information about the authors: full name, scientific degree, academic title, place of work, position, phone number, title of the abstract, section number and title of the conference are provided in e-mail.</value>
+  </data>
+  <data name="s_req8" xml:space="preserve">
+    <value>The article will electronically be sent to one of the conference addresses:</value>
+  </data>
+  <data name="s_req9" xml:space="preserve">
+    <value>Each article is reviewed by the members of the Organizing Committee.</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Academic Title</value>
+  </data>
+  <data name="title_1" xml:space="preserve">
+    <value>Mr.</value>
+  </data>
+  <data name="title_2" xml:space="preserve">
+    <value>Mrs.</value>
+  </data>
+  <data name="title_3" xml:space="preserve">
+    <value>Lecturer</value>
+  </data>
+  <data name="title_4" xml:space="preserve">
+    <value>Senior Lecturer</value>
+  </data>
+  <data name="title_5" xml:space="preserve">
+    <value>PhD Candidate</value>
+  </data>
+  <data name="title_6" xml:space="preserve">
+    <value>Dr.</value>
+  </data>
+  <data name="title_7" xml:space="preserve">
+    <value>Associate Professor</value>
+  </data>
+  <data name="title_8" xml:space="preserve">
+    <value>Professor</value>
+  </data>
+  <data name="topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="topics" xml:space="preserve">
+    <value>Topics</value>
+  </data>
+  <data name="topic_1" xml:space="preserve">
+    <value>Technical and technological sciences</value>
+  </data>
+  <data name="topic_2" xml:space="preserve">
+    <value>Physics and math</value>
+  </data>
+  <data name="topic_3" xml:space="preserve">
+    <value>Humanities and social sciences</value>
+  </data>
+  <data name="topic_4" xml:space="preserve">
+    <value>Medicine, biology and chemistry</value>
+  </data>
+  <data name="topic_5" xml:space="preserve">
+    <value>Education, training technologies and pedagogy</value>
+  </data>
+  <data name="topic_6" xml:space="preserve">
+    <value>Economic sciences</value>
+  </data>
+  <data name="topic_7" xml:space="preserve">
+    <value>Construction and architectural sciences</value>
+  </data>
+  <data name="topic_title" xml:space="preserve">
+    <value>The conference is soliciting state-of-the-art research papers in the following areas of interest</value>
+  </data>
+  <data name="users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="user_info" xml:space="preserve">
+    <value>Users' Information</value>
+  </data>
+  <data name="valid_email" xml:space="preserve">
+    <value>Please Provide A Valid Email!</value>
+  </data>
+  <data name="valid_pass" xml:space="preserve">
+    <value>Please Provide A Valid Password!</value>
+  </data>
+  <data name="valid_phone" xml:space="preserve">
+    <value>Please Provide A Valid Phone!</value>
+  </data>
+  <data name="valid_value" xml:space="preserve">
+    <value>Please Provide A Valid Value!</value>
+  </data>
+  <data name="venue" xml:space="preserve">
+    <value>Venue</value>
+  </data>
+  <data name="venue_text_1" xml:space="preserve">
+    <value>Azerbaijan Technical University (AzTU) is one of the leading universities in the field of technical education of Azerbaijan Republic, which was established as Azerbaijan Polytechnic Institute in 1950. With about 7000 students, AzTU offers education in BA, MA and PhD degrees in several areas of study. There are about 30 bachelor's degree specialties and up to 100 master’s degree specialties at AzTU. Currently the university trains highly qualified specialists in the following faculties:</value>
+  </data>
+  <data name="venue_text_2" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="venue_text_3" xml:space="preserve">
+    <value>Electrical engineering and energetics</value>
+  </data>
+  <data name="venue_text_4" xml:space="preserve">
+    <value>Radio engineering and communication</value>
+  </data>
+  <data name="vise_chairs" xml:space="preserve">
+    <value>Vice-Chairs of the Conference</value>
+  </data>
+  <data name="vise_chairs_1" xml:space="preserve">
+    <value>Prof. Ilham Pirmammadov – Vice-Rector of Azerbaijan Technical University on Science and Technics</value>
+  </data>
+  <data name="vise_chairs_2" xml:space="preserve">
+    <value>Prof. Subhan Namazov – Vice-Rector of Azerbaijan Technical University on International Relations</value>
+  </data>
+  <data name="vise_chairs_3" xml:space="preserve">
+    <value>Prof. Dr. Ahmet Kemal Çelebi – Rector of Manisa Celal Bayar University</value>
+  </data>
+  <data name="wait_until_download" xml:space="preserve">
+    <value>Please wait while we upload your file</value>
+  </data>
+  <data name="your_pass" xml:space="preserve">
+    <value>Your password</value>
+  </data>
+  <data name="guidelines" xml:space="preserve">
+    <value>Guidelines</value>
+  </data>
+  <data name="paper_approved_text" xml:space="preserve">
+    <value>paper was approved by our staff!</value>
+  </data>
+  <data name="paper_approve" xml:space="preserve">
+    <value>Paper Approve</value>
+  </data>
+  <data name="load_paper" xml:space="preserve">
+    <value>Load More Papers</value>
+  </data>
+  <data name="for_registration" xml:space="preserve">
+    <value>You must register for paper submission</value>
+  </data>
+  <data name="reg_for_submission" xml:space="preserve">
+    <value>You must register for submission.</value>
+  </data>
+  <data name="venue_text_10" xml:space="preserve">
+    <value>There are a Scientific-research centre and 6 specialized laboratories for students and employees. The languages of instruction at AzTU are Azerbaijani and Russian. Around 650 academic and administrative staff including more than 70 professors, doctors of sciences, around 350 associate professors, candidate of science (PhD) work at 35 chairs of faculties. The results of scientific achievements of the University are published in the scientific-technical journal “Scientific works” and "Mechanical Engineering". The main aim of AzTU is to train engineers, scientific and pedagogical staff in various technical fields.</value>
+  </data>
+  <data name="venue_text_11" xml:space="preserve">
+    <value>AzTU has developed strong academic relations within the framework of various international projects. Our university collaborates with UN, UNESKO, TRASEKA and other relevant International Organisations and a lot of foreign universities. The University has direct contacts with the most leading universities of USA, Germany, France, Korea, Turkey, Romania, Russia, Ukraine, Belarus, Latvia, Kazakhstan. According to UniRank World University 2018 Rankings, AzTU is ranked 6341 and No 6 in country rank.</value>
+  </data>
+  <data name="venue_text_5" xml:space="preserve">
+    <value>Metallurgy</value>
+  </data>
+  <data name="venue_text_6" xml:space="preserve">
+    <value>Mechanical engineering</value>
+  </data>
+  <data name="venue_text_7" xml:space="preserve">
+    <value>Automation and computer engineering</value>
+  </data>
+  <data name="venue_text_8" xml:space="preserve">
+    <value>Special techniques and technology</value>
+  </data>
+  <data name="venue_text_9" xml:space="preserve">
+    <value>Engineering business and management</value>
+  </data>
+  <data name="org_az_side" xml:space="preserve">
+    <value>- From Azerbaijan</value>
+  </data>
+  <data name="org_com" xml:space="preserve">
+    <value>Organizing Committee Members</value>
+  </data>
+  <data name="org_tr_26" xml:space="preserve">
+    <value>Anadolu University</value>
+  </data>
+  <data name="org_tr_27" xml:space="preserve">
+    <value>Bozok University</value>
+  </data>
+  <data name="org_tr_28" xml:space="preserve">
+    <value>Uşak University</value>
+  </data>
+  <data name="org_tr_29" xml:space="preserve">
+    <value>Hacı Bayram Veli University</value>
+  </data>
+  <data name="org_tr_30" xml:space="preserve">
+    <value>Doğu Akdeniz University</value>
+  </data>
+  <data name="org_tr_31" xml:space="preserve">
+    <value>Karatay University</value>
+  </data>
+  <data name="org_tr_32" xml:space="preserve">
+    <value>YOK</value>
+  </data>
+  <data name="org_tr_33" xml:space="preserve">
+    <value>TİKA</value>
+  </data>
+  <data name="org_tr_side" xml:space="preserve">
+    <value>- From Turkey</value>
+  </data>
+  <data name="uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="degree_3" xml:space="preserve">
+    <value>Researcher</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="edit_success" xml:space="preserve">
+    <value>The information was edited successfully!</value>
+  </data>
+  <data name="approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="s_req14" xml:space="preserve">
+    <value>At the beginning of the article, key words and an abstract of 50-100 words in 2 languages (in which the article is compiled and in one of the other languages of the conference) should be provided.</value>
+  </data>
+  <data name="edit_paper" xml:space="preserve">
+    <value>Edit Paper</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="delete_paper" xml:space="preserve">
+    <value>Delete Paper</value>
+  </data>
+  <data name="undo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="sure_to_remove" xml:space="preserve">
+    <value>Are you sure to delete this paper?</value>
+  </data>
+  <data name="approved_papers" xml:space="preserve">
+    <value>Approved Papers</value>
+  </data>
+  <data name="az_paper_users" xml:space="preserve">
+    <value>Users From Azerbaijan Who Sent The Paper</value>
+  </data>
+  <data name="infAppUser" xml:space="preserve">
+    <value>The Information Of Users Whose Paper Is Approved</value>
+  </data>
+  <data name="paper_send_user" xml:space="preserve">
+    <value>Users Who Have Sent The Paper:</value>
+  </data>
+  <data name="stats" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="tr_paper_users" xml:space="preserve">
+    <value>Users From Turkey Who Sent The Paper</value>
+  </data>
+  <data name="deadline_text" xml:space="preserve">
+    <value>You have missed the deadline! The deadline for submissions was 20 November.</value>
+  </data>
+  <data name="announcement" xml:space="preserve">
+    <value>Announcements</value>
+  </data>
+  <data name="program_conference" xml:space="preserve">
+    <value>Program Of The Conference</value>
+  </data>
+  <data name="conference_material" xml:space="preserve">
+    <value>Conference Materials</value>
+  </data>
+  <data name="part_1" xml:space="preserve">
+    <value>First Part</value>
+  </data>
+  <data name="part_2" xml:space="preserve">
+    <value>Second Part</value>
+  </data>
+  <data name="part_3" xml:space="preserve">
+    <value>Third Part</value>
+  </data>
+</root>
